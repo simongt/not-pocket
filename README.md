@@ -1,5 +1,5 @@
 # THIS IS GOING TO BE THE DOPEST APP EVER
 
-The Crew is: 
+The Squad is:
 
  * drl
