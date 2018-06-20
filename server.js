@@ -17,7 +17,7 @@ if (process.env.NODE_ENV == "production") {
   });
 }
 
-// Start the web server listening on the provided port.
+// Run the web server listening on the provided port.
 app.listen(PORT, () => {
   console.log(`Express web server listening on port ${PORT}`);
 });
