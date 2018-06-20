@@ -3,3 +3,5 @@
 The Squad is:
 
  * drl
+ * sy
+ * ykv
