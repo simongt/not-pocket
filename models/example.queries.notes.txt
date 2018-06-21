@@ -1,0 +1,59 @@
+//get all stashes with their tags
+SELECT 
+    stash.user_id as user_id,
+	stash.id as stash_id,
+	stash.stash_url,
+	stash.is_public,
+	users.username,
+	stash_tags.tag_id,
+	stash_tags.tag_id,
+	tags.tag
+FROM 
+    stash as stash 
+JOIN 
+    users as users 
+        ON users.id = stash.user_id 
+JOIN 
+    stash_tags as stash_tags
+        ON stash_tags.stash_id = stash.id
+JOIN 
+    tags as tags
+        ON tags.id = stash_tags.tag_id;
+
+//outputs =>
+     "user_id"	"stash_id"	"stash_url"	            "is_public"	"username"	"tag_id"	"tag_id"	"tag"
+        1	        1   	"example.com/puppies"   	TRUE	"drl"       	1       	1   	"node"
+        1	        1   	"example.com/puppies"   	TRUE	"drl"       	2       	2   	"ruby"
+        2	        2   	"example.com/kittens"   	TRUE	"ykv"       	1       	1   	"node"
+        2	        2   	"example.com/kittens"   	TRUE	"ykv"       	3       	3   	"sql"
+        3	        3   	"example.com/reptiles"  	FALSE	"sy"        	1       	1   	"node"
+        4	        4   	"example.com/lizards"   	FALSE	"ryl"       	4       	4   	"scripting"
+        4	        4   	"example.com/lizards"   	FALSE	"ryl"       	1       	1   	"node"
+        1	        5   	"example.com/puppies"   	TRUE	"drl"       	1       	1   	"node"
+        2	        6   	"example.com/monkeys"   	TRUE	"ykv"       	1       	1   	"node"
+        2	        6   	"example.com/monkeys"   	TRUE	"ykv"       	3       	3   	"sql"
+        3	        7   	"example.com/short_ppl" 	FALSE	"sy"        	1       	1   	"node"
+        3	        7   	"example.com/short_ppl" 	FALSE	"sy"        	2       	2   	"ruby"
+        4	        8   	"example.com/node"  	    FALSE	"ryl"       	1       	1   	"node"
+        1	        9   	"example.com/python"    	TRUE	"drl"       	3       	3   	"sql"
+        1	        9   	"example.com/python"    	TRUE	"drl"       	1       	1   	"node"
+        2	        10  	"example.com/ruby"  	    TRUE	"ykv"       	4       	4   	"scripting"
+        2	        10  	"example.com/ruby"  	    TRUE	"ykv"       	1       	1   	"node"
+        3	        11  	"example.com/insects"   	FALSE	"sy"        	1       	1   	"node"
+        4	        12  	"example.com/dolphins"  	FALSE	"ryl"       	1       	1   	"node"
+        4	        12  	"example.com/dolphins"  	FALSE	"ryl"       	3       	3   	"sql"
+
+
+
+ * My thinking is we do most of our prototyping using roughly the above query and do any filtering at the app level (possible exception is filtering by user_id)
+ * Possible "complication" (not a huge deal IMO)
+    - If a user is entering a new item to stash and assigning tags to it we need to have a multistep process for entering info into the various tables. Quick pseudo code: 
+        insert (user_id,stash_url) into stash
+        return stash_id
+        THEN
+        insert (stash_id,tag_id) into tags
+* Possible complication II (slightly bigger deal?)
+    -If a user is entering new tags at the same time they are entering a new stash (most likely scenario) we need to be able to capture the tags independent of capturing the stash info
+    -This can maybe be mitigated with separate components for tag entry (creation?) and stash submission
+        Thought: For MVP do whatever is simplest, and have "a fancy, AJAX-y tag submission form" be a stretch goal. 
+
