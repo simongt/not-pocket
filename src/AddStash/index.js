@@ -10,7 +10,7 @@ class AddStash extends Component {
     this.state = {
       stash_url: "",
       is_public: false,
-      user_id: 0, // ?
+      // user_id: this.props.user_id
       created: false,
     }
     this.onFormChange = this.onFormChange.bind(this);
@@ -49,8 +49,18 @@ class AddStash extends Component {
   }
 
   render() {
+    if (this.state.created === true) {
+      return <Redirect to = "/" /> ;
+    }
     return (
-
+      <div className="AddStash">
+        <h1>Stash A New URL</h1>
+        <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
+          <p>
+            <input type="submit" value="Stash it!" />
+          </p>
+        </form>
+      </div>
     );
   }
 }
