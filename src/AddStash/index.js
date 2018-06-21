@@ -17,6 +17,15 @@ class AddStash extends Component {
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
+  onFormChange(event) {
+    const element = event.target;
+    const name = element.name;
+    const value = element.value;
+    const newState = {};
+    newState[name] = value;
+    this.setState(newState);
+  }
+
   render() {
     return (
 
