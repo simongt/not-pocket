@@ -1,7 +1,39 @@
-const express = require('express');
-const path = require('path');
 // Create a new Express application (web server)
+const express = require('express');
 const app = express();
+
+const path = require('path');
+
+//instantiate Helmet (basic form protection)
+const helmet = require('helmet');
+app.use(helmet());
+
+
+
+//Set up persistent session storage
+const session = require("express-session");
+const pgSession = require('connect-pg-simple')(session);
+const databaseName = "notapocketclone";
+
+if (process.env.NODE_ENV === "development" || !process.env.NODE_ENV) {
+    conString = `postgres://localhost:5432/${databaseName}`;
+} else if (process.env.NODE_ENV === "production") {
+   conString = process.env.DATABASE_URL;
+}
+
+app.use(session({
+  store: new pgSession({
+    conString: conString
+  }),
+  saveUninitialized: true,
+  secret: 'IAMTHEVERYMODELOFAMODERNMAJORGENERAL',
+  resave: false,
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000
+  }
+}));
+//END persistent session storage
+
 
 app.use('/static', express.static('build/static'));
 
