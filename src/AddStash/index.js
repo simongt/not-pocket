@@ -67,6 +67,21 @@ class AddStash extends Component {
           </p>
 
           <p>
+            <label for="is_public">Public or private?</label>
+            <input
+              type="radio"
+              name="is_public"
+              checked
+              value={this.state.is_public}
+            /> public
+            <input
+              type="radio"
+              name="is_private" 
+              value={!(this.state.is_public)}
+            /> private
+          </p>
+
+          <p>
             <input type="submit" value="Stash it!" />
           </p>
         </form>
