@@ -1,2 +1,19 @@
-//this will be the initial page
-//it will show the whole stach
+import React, { Component } from "react";
+import "./style.css";
+
+class Home extends Component {
+  render() {
+    return (
+      <div className = "Home"></div>
+    )
+  }
+}
+
+
+
+
+
+
+
+
+export default Home;
