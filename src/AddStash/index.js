@@ -26,6 +26,28 @@ class AddStash extends Component {
     this.setState(newState);
   }
 
+  onFormSubmit(event) {
+    event.preventDefault();
+    const newStash = {
+      stash_url: this.state.stash_url,
+      is_public: this.state.is_public,
+      user_id: this.state.user_id,
+    }
+
+    fetch('/stashes', {
+        method: "POST",
+        body: JSON.stringify(newStash),
+        headers: {
+          "Content-type": "application/json"
+        }
+      }).then(response => response.json())
+      .then(stash => {
+        this.setState({
+          created: true
+        });
+      });
+  }
+
   render() {
     return (
 
