@@ -49,6 +49,13 @@ if (process.env.NODE_ENV == "production") {
   });
 }
 
+app.get('/stash.json', (request, response) => {
+  Stash.all()
+    .then(stash => {
+      response.json(stash)
+    });
+});
+
 // Run the web server listening on the provided port.
 app.listen(PORT, () => {
   console.log(`Express web server listening on port ${PORT}`);
