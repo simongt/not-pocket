@@ -12,16 +12,11 @@ class Personal extends Component {
         <Header />
 
         <Footer />
-        
+
         </div>
     )
   }
 }
-
-
-
-
-
 
 
 
