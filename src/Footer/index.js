@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import "./style.css";
 
-class Header extends Component {
+class Footer extends Component {
   render() {
     return (
-      <div className="header"></div>
+      <div className="footer"></div>
     )
   }
 }
 
-
-export default Header;
+export default Footer;
