@@ -1,7 +1,6 @@
 // Create a new Express application (web server)
 const express = require('express');
 const app = express();
-
 const path = require('path');
 
 //instantiate Helmet (basic form protection)
@@ -14,6 +13,7 @@ app.use(helmet());
 const session = require("express-session");
 const pgSession = require('connect-pg-simple')(session);
 const databaseName = "notapocketclone";
+const Stash = require('./models/Stash');
 
 if (process.env.NODE_ENV === "development" || !process.env.NODE_ENV) {
     conString = `postgres://localhost:5432/${databaseName}`;
