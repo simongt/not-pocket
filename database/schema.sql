@@ -32,19 +32,11 @@ CREATE TABLE stash_tags (
     stash_id INTEGER REFERENCES stash(id)
 );
 
-
-
-
-
-
-
-
 -- Taken from node_modules/connect-pg-simple/table.sql
---commenting until we agree to use connect-pg-simple
--- CREATE TABLE "session" (
---   "sid" varchar NOT NULL COLLATE "default",
--- 	"sess" json NOT NULL,
--- 	"expire" timestamp(6) NOT NULL
--- )
--- WITH (OIDS=FALSE);
--- ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
+CREATE TABLE "session" (
+  "sid" varchar NOT NULL COLLATE "default",
+	"sess" json NOT NULL,
+	"expire" timestamp(6) NOT NULL
+)
+WITH (OIDS=FALSE);
+ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
