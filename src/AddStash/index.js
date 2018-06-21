@@ -57,6 +57,16 @@ class AddStash extends Component {
         <h1>Stash A New URL</h1>
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <p>
+            <label for="stash_url">URL</label>
+            <input 
+              type="url"
+              name="stash_url"
+              placeholder="http://"
+              value={this.state.stash_url}
+              />
+          </p>
+
+          <p>
             <input type="submit" value="Stash it!" />
           </p>
         </form>
