@@ -4,10 +4,10 @@ import Header from "../Header";
 import AddStash from "../AddStash"
 import Footer from "../Footer";
 
-class Home extends Component {
+class Public extends Component {
   render() {
     return (
-      <div className = "Home">
+      <div className = "Public">
       <Header />
       <AddStash />
       <Footer />
@@ -21,4 +21,4 @@ class Home extends Component {
 
 
 
-export default Home;
+export default public;
