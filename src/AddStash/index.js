@@ -10,8 +10,8 @@ class AddStash extends Component {
 
     this.state = {
       stash_url: "",
-      is_public: false,
-      // user_id: this.props.user_id
+      is_public: true,
+      // user_id: ? (how to add currently logged user's id here)
       created: false,
     }
     this.onFormChange = this.onFormChange.bind(this);
@@ -35,7 +35,7 @@ class AddStash extends Component {
       user_id: this.state.user_id,
     }
 
-    fetch('/stashes', {
+    fetch('/add-stash', {
         method: "POST",
         body: JSON.stringify(newStash),
         headers: {
