@@ -14,6 +14,7 @@ const session = require("express-session");
 const pgSession = require('connect-pg-simple')(session);
 const databaseName = "notapocketclone";
 const Stash = require('./models/Stash');
+const Users = require('./models/Users');
 
 if (process.env.NODE_ENV === "development" || !process.env.NODE_ENV) {
     conString = `postgres://localhost:5432/${databaseName}`;
@@ -53,6 +54,13 @@ app.get('/stash.json', (request, response) => {
   Stash.all()
     .then(stash => {
       response.json(stash)
+    });
+});
+
+app.get('/users.json', (request, response) => {
+  User.all()
+    .then(user => {
+      response.json(user)
     });
 });
 
