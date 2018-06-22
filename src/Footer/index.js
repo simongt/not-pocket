@@ -4,10 +4,10 @@ import "./style.css";
 class Footer extends Component {
   render() {
     return (
-      <div class = "footer">
+      <div className = "footer">
       <footer>
         <p>© Hy-Squa</p>
-          </footer>
+      </footer>
       </div>
     )
   }

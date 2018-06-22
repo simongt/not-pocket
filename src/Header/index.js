@@ -4,7 +4,11 @@ import "./style.css";
 class Header extends Component {
   render() {
     return (
-      <div className="header"></div>
+      <div className="header">
+        <div className="head">
+          <p> placeholder head </p>
+        </div>
+      </div>
     )
   }
 }
