@@ -58,20 +58,49 @@ app.use('/static', express.static('build/static'));
 // and fallback to 4567
 const PORT = process.env.PORT || 4567;
 
-// In production, any request that doesn't match a previous route
-// should send the front-end application, which will handle the route.
-if (process.env.NODE_ENV == "production") {
-  app.get("/*", function (request, response) {
-    response.sendFile(path.join(__dirname, "build", "index.html"));
-  });
-}
 
-app.get('/stash.json', (request, response) => {
+app.get('/stashAll.json', (request, response) => {
   Stash.all()
     .then(stash => {
       response.json(stash)
     });
 });
+
+app.get('/stashPublic.json', (request, response) => {
+  Stash.public()
+    .then(stash => {
+      response.json(stash)
+    });
+});
+
+app.get('/byUser/:id.json', (request, response) => {
+  const id = request.params.id;
+  Stash.byUser({
+      id: id
+    })
+    .then(stash => {
+      response.json(stash)
+    });
+});
+
+app.get('/byStashID/:id.json', (request, response) => {
+  const id = request.params.id;
+  Stash.byStashID({
+      id : id
+    })
+    .then(stash => {
+      response.json(stash)
+    });
+});
+//Will likely need to be changed to a redirect
+app.post('/stash',(request,response) => {
+  const stashInfo = request.body;
+  Stash.create(stashInfo)
+  .then(stash => {
+    response.json(stash)
+  })
+})
+
 
 app.get('/users.json', (request, response) => {
   Users.all()
@@ -101,7 +130,7 @@ app.post('/login', (request, response) => {
     });
 });
 
-app.get('/test', isLoggedIn,(request,response) => {
+app.get('/test', isLoggedIn, (request, response) => {
   response.send("if you are reading this, you are logged in")
 })
 
@@ -123,6 +152,15 @@ app.post('/register', (request, response) => {
       response.send("new user registered");
     });
 });
+
+// In production, any request that doesn't match a previous route
+// should send the front-end application, which will handle the route.
+if (process.env.NODE_ENV == "production") {
+  app.get("/*", function (request, response) {
+    response.sendFile(path.join(__dirname, "build", "index.html"));
+  });
+}
+
 
 // Run the web server listening on the provided port.
 app.listen(PORT, () => {
