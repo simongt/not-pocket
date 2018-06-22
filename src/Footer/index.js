@@ -4,7 +4,11 @@ import "./style.css";
 class Footer extends Component {
   render() {
     return (
-      <div className="footer"></div>
+      <div class = "footer">
+      <footer>
+        <p>© Hy-Squa</p>
+          </footer>
+      </div>
     )
   }
 }
