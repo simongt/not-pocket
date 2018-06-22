@@ -46,6 +46,7 @@ Stash.public = () => {
 }
 
 Stash.byUser = (id) => {
+  console.log(id)
   return db.any(`
     SELECT stash.user_id as user_id,
       stash.id as stash_id,
@@ -61,10 +62,8 @@ Stash.byUser = (id) => {
       ON stash_tags.stash_id = stash.id
     JOIN tags as tags
       ON tags.id = stash_tags.tag_id
-    WHERE user_id = $<id.user_id>
-  `, {
-    id
-  })
+    WHERE user_id = $<id>
+  `, id)
 }
 
 // Limiting output to just one for now
@@ -86,11 +85,9 @@ Stash.byStashID = (id) => {
       ON stash_tags.stash_id = stash.id
     JOIN tags as tags
       ON tags.id = stash_tags.tag_id
-    WHERE stash_id = $<id.stash_id>
+    WHERE stash_id = $<id>
     LIMIT 1
-  `, {
-    id
-  })
+  `, id)
 }
 
 
@@ -132,14 +129,14 @@ Stash.delete = (id) => {
 //   })
 
 // Stash.byUser({
-//     user_id: 1
+//     id: 1
 //   })
 //   .then(dbResponse => {
 //     console.log(dbResponse)
 //   })
 
 // Stash.byStashID({
-//     stash_id: 1
+//     id: 1
 //   })
 //   .then(dbResponse => {
 //     console.log(dbResponse)
