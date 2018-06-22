@@ -94,19 +94,15 @@ Stash.byStashID = (id) => {
 Stash.create = (stashInfo) => {
   return db.one(`
         INSERT INTO stash (stash_url,is_public,user_id)
-        VALUES ($<stashInfo.stash_url>,$<stashInfo.is_public>,$<stashInfo.user_id>)
+        VALUES ($<stash_url>,$<is_public>,$<user_id>)
         RETURNING *
-    `, {
-    stashInfo
-  })
+    `, stashInfo)
 }
 
 Stash.delete = (id) => {
   return db.result(`
-    DELETE FROM stash WHERE id = $<id.stash_id>
-    `, {
-    id
-  });
+    DELETE FROM stash WHERE id = $<id>
+    `, id);
 }
 
 // //TEST
