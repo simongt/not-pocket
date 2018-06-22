@@ -1,0 +1,10 @@
+body{
+  margin:0;
+}
+
+.bar-header{
+  padding:8px 16px;
+  border:none;
+  /* next line pervents a quick small flash of light blue */
+  outline:0;
+}
