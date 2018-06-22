@@ -145,11 +145,11 @@ Stash.delete = (id) => {
 //     console.log(dbResponse)
 //   })
 
-Stash.delete({
-    stash_id: 13
-  })
-  .then(dbResponse => {
-    console.log(dbResponse)
-  })
+// Stash.delete({
+//     stash_id: 13
+//   })
+//   .then(dbResponse => {
+//     console.log(dbResponse)
+//   })
 
 module.exports = Stash;
