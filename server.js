@@ -86,19 +86,30 @@ app.get('/byUser/:id.json', (request, response) => {
 app.get('/byStashID/:id.json', (request, response) => {
   const id = request.params.id;
   Stash.byStashID({
-      id : id
+      id: id
     })
     .then(stash => {
       response.json(stash)
     });
 });
 //Will likely need to be changed to a redirect
-app.post('/stash',(request,response) => {
+app.post('/stash', (request, response) => {
   const stashInfo = request.body;
   Stash.create(stashInfo)
-  .then(stash => {
-    response.json(stash)
-  })
+    .then(stash => {
+      response.json(stash)
+    })
+})
+
+//Will likely need to be changed to a redirect
+app.put('/stash/:id', (request, response) => {
+  const id = request.params.id;
+  Stash.delete({
+      id: id
+    })
+    .then(stash => {
+      response.json(stash)
+    })
 })
 
 
