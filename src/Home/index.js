@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./style.css";
 import Header from "../Header";
+import Login from "../Login";
 import AddStash from "../AddStash"
 import Footer from "../Footer";
 import Stash from "../Stash";
@@ -35,6 +36,7 @@ class  Home extends Component {
     return (
       <div className = "Home">
       <Header />
+      <Login />
       <AddStash />
       <Stash />
       <Footer />
