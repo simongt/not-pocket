@@ -1,9 +1,9 @@
-//Form for authentication
+//Form for Registration
 
 import React, { Component } from "react";
 import "./style.css";
 
-class Login extends Component {
+class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,7 +28,8 @@ class Login extends Component {
       username: this.state.username,
       password: this.state.password,
     }
-    fetch('/login', {
+    console.log(userInfo)
+    fetch('/register', {
       method: 'POST',
       body: JSON.stringify(userInfo),
       headers: {
@@ -40,6 +41,7 @@ class Login extends Component {
       .then(jsonResp => {
         console.log(jsonResp)
         if (jsonResp.response === "SUCCESS") {
+          console.log("REGISTERED")
           this.props.onUserLoggedIn(jsonResp)
         } else {
           console.log("PW DIDN'T MATCH")
@@ -47,11 +49,12 @@ class Login extends Component {
       })
   }
 
+
   render() {
     return (
-        <div className="Login">
+        <div className="register">
           <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
-            <h2>Already a member? Login!</h2>
+            <h2>Want to start stashing? Sign up!</h2>
             <p>Username <input type="email" name="username" required value={this.state.username} /></p>
             <p>Password <input type="password" name="password" required value={this.state.password} /></p>
             <p><input type="submit" value="submit" /></p>
@@ -62,4 +65,4 @@ class Login extends Component {
 }
 
 
-export default Login;
+export default Register;

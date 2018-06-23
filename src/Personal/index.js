@@ -19,18 +19,18 @@ class Personal extends Component {
     }
   }
 
-  componentDidMount() {
-    // let id = this.props.match.params.id;
-    fetch(`/stash.json`)
-      .then(response => response.json())
-      .then(stsh => {
-        this.setState({
-          // id: stsh.id,
-          stash_url: stsh.stash_url,
-          user_id: stsh.user_id,
-        });
-      });
-  }
+  // componentDidMount() {
+  //   // let id = this.props.match.params.id;
+  //   fetch(`/stash.json`)
+  //     .then(response => response.json())
+  //     .then(stsh => {
+  //       this.setState({
+  //         // id: stsh.id,
+  //         stash_url: stsh.stash_url,
+  //         user_id: stsh.user_id,
+  //       });
+  //     });
+  // }
 
   render() {
     return (
