@@ -2,10 +2,6 @@ const db = require('../database/connection')
 
 const Stash = {};
 
-// Stash.all = () => {
-//   return db.any('SELECT * FROM stash');
-// }
-
 Stash.all = () => {
   return db.any(`
     SELECT stash.user_id as user_id,
@@ -13,8 +9,8 @@ Stash.all = () => {
       stash.stash_url,
       stash.is_public,
       users.username,
-      stash_tags.tag_id,
-      tags.tag
+      array_agg(stash_tags.tag_id) as tag_ids,
+      array_agg(tags.tag) as tags
     FROM stash as stash
     JOIN users as users
       ON users.id = stash.user_id
@@ -22,6 +18,7 @@ Stash.all = () => {
       ON stash_tags.stash_id = stash.id
     JOIN tags as tags
       ON tags.id = stash_tags.tag_id
+    GROUP BY stash.user_id, stash.id, stash.stash_url, stash.is_public, users.username
   `)
 }
 
@@ -32,8 +29,8 @@ Stash.public = () => {
       stash.stash_url,
       stash.is_public,
       users.username,
-      stash_tags.tag_id,
-      tags.tag
+      array_agg(stash_tags.tag_id) as tag_ids,
+      array_agg(tags.tag) as tags
     FROM stash as stash
     JOIN users as users
       ON users.id = stash.user_id
@@ -42,6 +39,7 @@ Stash.public = () => {
     JOIN tags as tags
       ON tags.id = stash_tags.tag_id
     WHERE is_public = true
+    GROUP BY stash.user_id, stash.id, stash.stash_url, stash.is_public, users.username
   `)
 }
 
@@ -53,8 +51,8 @@ Stash.byUser = (id) => {
       stash.stash_url,
       stash.is_public,
       users.username,
-      stash_tags.tag_id,
-      tags.tag
+      array_agg(stash_tags.tag_id) as tag_ids,
+      array_agg(tags.tag) as tags
     FROM stash as stash
     JOIN users as users
       ON users.id = stash.user_id
@@ -63,6 +61,7 @@ Stash.byUser = (id) => {
     JOIN tags as tags
       ON tags.id = stash_tags.tag_id
     WHERE user_id = $<id>
+    GROUP BY stash.user_id, stash.id, stash.stash_url, stash.is_public, users.username
   `, id)
 }
 
@@ -76,8 +75,8 @@ Stash.byStashID = (id) => {
       stash.stash_url,
       stash.is_public,
       users.username,
-      stash_tags.tag_id,
-      tags.tag
+      array_agg(stash_tags.tag_id) as tag_ids,
+      array_agg(tags.tag) as tags
     FROM stash as stash
     JOIN users as users
       ON users.id = stash.user_id
@@ -86,7 +85,7 @@ Stash.byStashID = (id) => {
     JOIN tags as tags
       ON tags.id = stash_tags.tag_id
     WHERE stash_id = $<id>
-    LIMIT 1
+      GROUP BY stash.user_id, stash.id, stash.stash_url, stash.is_public, users.username
   `, id)
 }
 
@@ -107,13 +106,6 @@ Stash.delete = (id) => {
 
 // //TEST
 
-// Stash.create({
-//   stash_url : "http://example.com/dogswithjobs",
-//   is_public : true,
-//   user_id: 1
-// }).then(dbResponse => {
-//   console.log(dbResponse);
-// })
 // Stash.all()
 // .then(dbResponse => {
 //   console.log(dbResponse)
@@ -137,6 +129,14 @@ Stash.delete = (id) => {
 //   .then(dbResponse => {
 //     console.log(dbResponse)
 //   })
+
+// Stash.create({
+//   stash_url : "http://example.com/dogswithjobs",
+//   is_public : true,
+//   user_id: 1
+// }).then(dbResponse => {
+//   console.log(dbResponse);
+// })
 
 // Stash.delete({
 //     stash_id: 13
