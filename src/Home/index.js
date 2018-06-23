@@ -5,49 +5,42 @@ import Login from "../Login";
 import AddStash from "../AddStash"
 import Footer from "../Footer";
 import Stash from "../Stash";
+import { SSL_OP_PKCS1_CHECK_1 } from "constants";
 
-class  Home extends Component {
+class Home extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      id: 0,
-      stash_url: "",
-      user_id: "",
+      stashes: [],
     }
   }
 
   componentDidMount() {
     // let id = this.props.match.params.id;
-    fetch(`/stash.json`)
+    fetch(`/stashAll.json`)
     .then(response => response.json())
-      .then(stsh => {
+      .then(stashes => {
         this.setState({
-          // id: stsh.id,
-          stash_url: stsh.stash_url,
-          user_id: stsh.user_id,
+          stashes
         });
       });
   }
 
-
   render() {
     return (
-      <div className = "Home">
-      <Header />
-      <Login />
-      <AddStash />
-      <Stash />
-      <Footer />
+      <div className="Home">
+        <Header />
+        <Login />
+        <AddStash />
+        {this.state.stashes.map(stash => {
+          return <Stash stash={stash}/>
+        })}
+        <Footer />
       </div>
     )
   }
 }
-
-
-
-
-
 
 export default Home;
