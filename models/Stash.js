@@ -2,10 +2,7 @@ const db = require('../database/connection')
 
 const Stash = {};
 
-// Stash.all = () => {
-//   return db.any('SELECT * FROM stash');
-// }
-
+//Returns all stashes
 Stash.all = () => {
   return db.any(`
     SELECT stash.user_id as user_id,
@@ -13,8 +10,8 @@ Stash.all = () => {
       stash.stash_url,
       stash.is_public,
       users.username,
-      stash_tags.tag_id,
-      tags.tag
+      array_agg(stash_tags.tag_id) as tag_ids,
+      array_agg(tags.tag) as tags
     FROM stash as stash
     JOIN users as users
       ON users.id = stash.user_id
@@ -22,9 +19,11 @@ Stash.all = () => {
       ON stash_tags.stash_id = stash.id
     JOIN tags as tags
       ON tags.id = stash_tags.tag_id
+    GROUP BY stash.user_id, stash.id, stash.stash_url, stash.is_public, users.username
   `)
 }
 
+//Returns all public stashes
 Stash.public = () => {
   return db.any(`
     SELECT stash.user_id as user_id,
@@ -32,8 +31,8 @@ Stash.public = () => {
       stash.stash_url,
       stash.is_public,
       users.username,
-      stash_tags.tag_id,
-      tags.tag
+      array_agg(stash_tags.tag_id) as tag_ids,
+      array_agg(tags.tag) as tags
     FROM stash as stash
     JOIN users as users
       ON users.id = stash.user_id
@@ -42,9 +41,11 @@ Stash.public = () => {
     JOIN tags as tags
       ON tags.id = stash_tags.tag_id
     WHERE is_public = true
+    GROUP BY stash.user_id, stash.id, stash.stash_url, stash.is_public, users.username
   `)
 }
 
+//Returns all stashes by a given user
 Stash.byUser = (id) => {
   console.log(id)
   return db.any(`
@@ -53,8 +54,8 @@ Stash.byUser = (id) => {
       stash.stash_url,
       stash.is_public,
       users.username,
-      stash_tags.tag_id,
-      tags.tag
+      array_agg(stash_tags.tag_id) as tag_ids,
+      array_agg(tags.tag) as tags
     FROM stash as stash
     JOIN users as users
       ON users.id = stash.user_id
@@ -63,21 +64,20 @@ Stash.byUser = (id) => {
     JOIN tags as tags
       ON tags.id = stash_tags.tag_id
     WHERE user_id = $<id>
+    GROUP BY stash.user_id, stash.id, stash.stash_url, stash.is_public, users.username
   `, id)
 }
 
-// Limiting output to just one for now
-// If we implement tags this will have to be changed
-//to db.any and remove the LIMIT 1 clause
+//Returns stash matching provided stash ID
 Stash.byStashID = (id) => {
   return db.one(`
-    SELECT stash.user_id as user_id,
+    SELECT stash.user_id as user_id,  
       stash.id as stash_id,
       stash.stash_url,
       stash.is_public,
       users.username,
-      stash_tags.tag_id,
-      tags.tag
+      array_agg(stash_tags.tag_id) as tag_ids,
+      array_agg(tags.tag) as tags
     FROM stash as stash
     JOIN users as users
       ON users.id = stash.user_id
@@ -86,11 +86,11 @@ Stash.byStashID = (id) => {
     JOIN tags as tags
       ON tags.id = stash_tags.tag_id
     WHERE stash_id = $<id>
-    LIMIT 1
+      GROUP BY stash.user_id, stash.id, stash.stash_url, stash.is_public, users.username
   `, id)
 }
 
-
+//Creates a new stash, returns information includeing stash_id
 Stash.create = (stashInfo) => {
   return db.one(`
         INSERT INTO stash (stash_url,is_public,user_id)
@@ -99,6 +99,7 @@ Stash.create = (stashInfo) => {
     `, stashInfo)
 }
 
+//Deletes stash matching provided ID
 Stash.delete = (id) => {
   return db.result(`
     DELETE FROM stash WHERE id = $<id>
@@ -107,13 +108,6 @@ Stash.delete = (id) => {
 
 // //TEST
 
-// Stash.create({
-//   stash_url : "http://example.com/dogswithjobs",
-//   is_public : true,
-//   user_id: 1
-// }).then(dbResponse => {
-//   console.log(dbResponse);
-// })
 // Stash.all()
 // .then(dbResponse => {
 //   console.log(dbResponse)
@@ -137,6 +131,14 @@ Stash.delete = (id) => {
 //   .then(dbResponse => {
 //     console.log(dbResponse)
 //   })
+
+// Stash.create({
+//   stash_url : "http://example.com/dogswithjobs",
+//   is_public : true,
+//   user_id: 1
+// }).then(dbResponse => {
+//   console.log(dbResponse);
+// })
 
 // Stash.delete({
 //     stash_id: 13
