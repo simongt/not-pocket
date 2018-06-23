@@ -2,6 +2,7 @@ const db = require('../database/connection')
 
 const Stash = {};
 
+//Returns all stashes
 Stash.all = () => {
   return db.any(`
     SELECT stash.user_id as user_id,
@@ -22,6 +23,7 @@ Stash.all = () => {
   `)
 }
 
+//Returns all public stashes
 Stash.public = () => {
   return db.any(`
     SELECT stash.user_id as user_id,
@@ -43,6 +45,7 @@ Stash.public = () => {
   `)
 }
 
+//Returns all stashes by a given user
 Stash.byUser = (id) => {
   console.log(id)
   return db.any(`
@@ -65,12 +68,10 @@ Stash.byUser = (id) => {
   `, id)
 }
 
-// Limiting output to just one for now
-// If we implement tags this will have to be changed
-//to db.any and remove the LIMIT 1 clause
+//Returns stash matching provided stash ID
 Stash.byStashID = (id) => {
   return db.one(`
-    SELECT stash.user_id as user_id,
+    SELECT stash.user_id as user_id,  
       stash.id as stash_id,
       stash.stash_url,
       stash.is_public,
@@ -89,7 +90,7 @@ Stash.byStashID = (id) => {
   `, id)
 }
 
-
+//Creates a new stash, returns information includeing stash_id
 Stash.create = (stashInfo) => {
   return db.one(`
         INSERT INTO stash (stash_url,is_public,user_id)
@@ -98,6 +99,7 @@ Stash.create = (stashInfo) => {
     `, stashInfo)
 }
 
+//Deletes stash matching provided ID
 Stash.delete = (id) => {
   return db.result(`
     DELETE FROM stash WHERE id = $<id>
