@@ -148,20 +148,29 @@ app.get('/test', isLoggedIn, (request, response) => {
 
 app.post('/register', (request, response) => {
   const plainTextPassword = request.body.password;
-  bcrypt.hash(plainTextPassword, saltRounds)
-    .then(hash => {
-      userData = {
-        username: request.body.username,
-        password_digest: hash,
-      };
-      return Users.create(userData);
-    })
-    .then(dbResp => {
-      request.session.loggedIn = true;
-      request.session.user_id = dbResp.user_id;
-      request.session.username = dbResp.username;
-      response.send("new user registered");
-    });
+  const username = request.body.username;
+  Users.findByUsername(username)
+  .then(dbResponseUsers => {
+    if (dbResponseUsers === null) {
+       console.log(dbResponseUsers)
+       response.send("dbResponseUsers")
+    }
+   
+  })
+  // bcrypt.hash(plainTextPassword, saltRounds)
+  //   .then(hash => {
+  //     const userData = {
+  //       username: username,
+  //       password_digest: hash,
+  //     };
+  //     return Users.create(userData);
+  //   })
+  //   .then(dbResp => {
+  //     request.session.loggedIn = true;
+  //     request.session.user_id = dbResp.user_id;
+  //     request.session.username = dbResp.username;
+  //     response.send("new user registered");
+  //   });
 });
 
 // In production, any request that doesn't match a previous route
