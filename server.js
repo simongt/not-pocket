@@ -19,7 +19,9 @@ const saltRounds = 10;
 
 const isLoggedIn = (request, response, next) => {
   if (!request.session.loggedIn) {
-    return response.send("Sorry, you must be signed in for access to this page");
+    return response.status(403).json({
+      response: "FORBIDDEN"
+    });
   } else {
     next();
   }
@@ -126,18 +128,28 @@ app.post('/login', (request, response) => {
   const plainTextPassword = request.body.password;
   Users.findByUsername(username)
     .then(dbResp => {
-      return bcrypt
-        .compare(plainTextPassword, dbResp.password_digest)
-        .then(res => {
-          if (res === true) {
-            request.session.loggedIn = true;
-            request.session.user_id = dbResp.user_id;
-            request.session.username = dbResp.username;
-            return response.send("you have logged in");
-          } else {
-            response.send("login failed");
-          }
-        });
+      if (dbResp === null) {
+        response.status(403).json({
+          response: "FORBIDDEN"
+        })
+      } else {
+        return bcrypt
+          .compare(plainTextPassword, dbResp.password_digest)
+          .then(res => {
+            if (res === true) {
+              request.session.loggedIn = true;
+              request.session.user_id = dbResp.user_id;
+              request.session.username = dbResp.username;
+              return response.status(201).json({
+                response: "SUCCESS"
+              });
+            } else {
+              response.status(403).json({
+                response: "FORBIDDEN"
+              });
+            }
+          });
+      }
     });
 });
 
@@ -150,27 +162,32 @@ app.post('/register', (request, response) => {
   const plainTextPassword = request.body.password;
   const username = request.body.username;
   Users.findByUsername(username)
-  .then(dbResponseUsers => {
-    if (dbResponseUsers === null) {
-       console.log(dbResponseUsers)
-       response.send("dbResponseUsers")
-    }
-   
-  })
-  // bcrypt.hash(plainTextPassword, saltRounds)
-  //   .then(hash => {
-  //     const userData = {
-  //       username: username,
-  //       password_digest: hash,
-  //     };
-  //     return Users.create(userData);
-  //   })
-  //   .then(dbResp => {
-  //     request.session.loggedIn = true;
-  //     request.session.user_id = dbResp.user_id;
-  //     request.session.username = dbResp.username;
-  //     response.send("new user registered");
-  //   });
+    .then(dbResponseUsers => {
+      if (dbResponseUsers !== null) {
+        console.log(dbResponseUsers)
+        response.status(303).json({
+          response: "username already in use"
+        })
+      } else {
+        bcrypt.hash(plainTextPassword, saltRounds)
+          .then(hash => {
+            const userData = {
+              username: username,
+              password_digest: hash,
+            };
+            return Users.create(userData);
+          })
+          .then(dbResp => {
+            request.session.loggedIn = true;
+            request.session.user_id = dbResp.user_id;
+            request.session.username = dbResp.username;
+            response.status(201).json({
+              response: "SUCCESS"
+            });
+          });
+      }
+    })
+
 });
 
 // In production, any request that doesn't match a previous route
