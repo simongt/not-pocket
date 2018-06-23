@@ -21,7 +21,11 @@ Users.create = (user) => {
 
 Users.findByUsername = (username) => {
   return db.one(`SELECT * FROM users 
-    WHERE username = $<username>`, {username});
+    WHERE username = $<username>`, {username})
+    .catch((e) => {
+      // console.log(e)
+      return(null)
+    })
 };
 
 //Tests
@@ -38,7 +42,7 @@ Users.findByUsername = (username) => {
 //   console.table(dbResponse)
 // })
 
-// Users.findByUsername("drl")
+// Users.findByUsername("drll")
 //   .then(dbResponse => {
 //     console.table(dbResponse)
 //   })
