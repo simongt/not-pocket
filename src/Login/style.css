@@ -1,0 +1,31 @@
+.Login {
+  display: flex;
+  width: 100%;
+  color: rgb(85, 85, 85);
+  text-align: center;
+}
+
+.Login input {
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  padding: 8px 14px;
+  font-size: 16px;
+  letter-spacing: -.4px;
+  background: white;
+}
+
+.Login input:-webkit-autofill {
+  -webkit-box-shadow: inset 0 0 0px 9999px white;
+}
+
+.Login .button {
+  background-color: #cb171f;
+  width: 100%;
+  color: white;
+}
+
+.Login .button:hover {
+  background-color: #e21a23;
+  cursor: pointer;
+}
