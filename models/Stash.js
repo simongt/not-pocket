@@ -91,12 +91,15 @@ Stash.byStashID = (id) => {
 }
 
 //Creates a new stash, returns information includeing stash_id
-Stash.create = (stashInfo) => {
+Stash.create = (stashInfo, cardInfo) => {
+  /*
+    cardInfo will allow us extract title, type, url, site_name, description, image.url, image.width, image.height
+  */
   return db.one(`
-        INSERT INTO stash (stash_url,is_public,user_id)
-        VALUES ($<stash_url>,$<is_public>,$<user_id>)
+        INSERT INTO stash (stash_url, is_public, user_id, card_title, card_type, card_url, card_site_name, card_description, card_image_url, card_image_width, card_image_height)
+        VALUES ($<stashInfo.stash_url>, $<stashInfo.is_public>, $<stashInfo.user_id>, $<cardInfotitle>, $<cardInfotype>, $<cardInfourl>, $<cardInfosite_name>, $<cardInfodescription>, $<cardInfoimage.url>, $<cardInfoimage.width>, $<cardInfoimage.height>)
         RETURNING *
-    `, stashInfo)
+    `, {stashInfo,cardInfo})
 }
 
 //Deletes stash matching provided ID
