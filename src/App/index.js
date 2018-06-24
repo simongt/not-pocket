@@ -52,6 +52,7 @@ class App extends Component {
         <Header placeholder="Logged In" />
         {/* The header on the next line is temporary */}
         <h1>These are personal stashes</h1>
+        <AddStash />
         <Personal userId={this.state.userId} />
         <Footer />
 
