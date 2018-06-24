@@ -1,5 +1,51 @@
-.head{
-  margin: 0 auto;
-  height: 50px;
-  background-color: aquamarine;
+body{
+  margin:0;
 }
+
+aside{
+  height:100%;
+  width:200px;
+  /* change color for side bar here */
+  background-color:#ffffff;
+  position:fixed;
+  display:none;
+  border-right: 1px solid grey;
+  transition-duration: 3s;
+}
+
+.bar-header{
+  padding:8px 16px;
+  border:none;
+  /* next line pervents a quick small flash of light blue */
+  outline:0;
+}
+
+/* background color for header */
+.teal{
+  color:#ffffff;
+  background-color:#009688;
+}
+
+.hambuger{
+  border:none;
+  padding:8px 16px;
+}
+
+/* makes the hamebuger this size */
+.xlarge{
+  font-size:24px;
+}
+
+/* gives close button (in aside) it's height */
+button{
+  font:inherit;
+  /* next line pervents a quick small flash of light blue */
+  outline:0;
+}
+
+nav{
+  text-align: center;
+}
+/* help from w3 schools:
+https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_sidebar_over  */
+
