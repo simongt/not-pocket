@@ -7,8 +7,7 @@ class Burger extends Component {
   render() {
     return (
       <div className="Burger">
-        <Menu customBurgerIcon={<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/220px-Hamburger_icon.svg.png" />} />
-        <Menu right>
+        <Menu right >
           <a id="home" className="menu-item" href="/">Home</a>
         </Menu>
       </div>

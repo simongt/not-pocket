@@ -4,5 +4,23 @@
   height: 30px;
   right: 36px;
   top: 36px;
-  filter: invert(100%);
+}
+
+.bm-overlay {
+  display: none;
+}
+
+.bm-burger-bars {
+  background: white;
+}
+
+.bm-cross {
+  background: white;
+}
+
+.bm-menu-wrap {
+  background-color: #cb171f;
+  position: fixed;
+  right: inherit;
+  height: 100%;
 }
