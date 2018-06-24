@@ -105,6 +105,7 @@ app.post('/stash', (request, response) => {
   // cardify will grab stash's metadata (title, type, url, site_name, description, image.url, image.width, image.height)
   cardify(url, function (err, meta) {
     // will check for resolving err's later... for now, sticking to mvp
+    console.log(err);
     Stash.create(stashInfo, meta)
       .then(stash => {
         response.json(stash)

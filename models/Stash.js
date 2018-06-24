@@ -97,9 +97,9 @@ Stash.create = (stashInfo, cardInfo) => {
   */
   return db.one(`
         INSERT INTO stash (stash_url, is_public, user_id, card_title, card_type, card_url, card_site_name, card_description, card_image_url, card_image_width, card_image_height)
-        VALUES ($<stashInfo.stash_url>, $<stashInfo.is_public>, $<stashInfo.user_id>, $<cardInfotitle>, $<cardInfotype>, $<cardInfourl>, $<cardInfosite_name>, $<cardInfodescription>, $<cardInfoimage.url>, $<cardInfoimage.width>, $<cardInfoimage.height>)
+        VALUES ($<stashInfo.stash_url>, $<stashInfo.is_public>, $<stashInfo.user_id>, $<cardInfo.title>, $<cardInfo.type>, $<cardInfo.url>, $<cardInfo.site_name>, $<cardInfo.description>, $<cardInfo.image.url>, $<cardInfo.image.width>, $<cardInfo.image.height>)
         RETURNING *
-    `, {stashInfo,cardInfo})
+    `, {stashInfo, cardInfo})
 }
 
 //Deletes stash matching provided ID
