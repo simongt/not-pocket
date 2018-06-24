@@ -5,10 +5,10 @@ import "./style.css";
 class Header extends Component {
   render() {
     return (
-      <div className="header">
+      <div className="Header">
+      <h1>NotPocket</h1>
           <aside id="mySidebar">
             <button onClick="toggle_close()" className="bar-header">Close &times;</button>
-
           </aside>
 
           <header className="teal">
