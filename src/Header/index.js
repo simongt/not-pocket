@@ -1,18 +1,29 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import { slide as Menu } from 'react-burger-menu';
 import "./style.css";
 
 
 class Header extends Component {
-  render() {
-    return (
-      <div className="Header">
+  showSettings (event) {
+    event.preventDefault();
+  }
+    render() {
+      return (
+        <div className="Header">
       <h1>NotPocket</h1>
-          <aside id="mySidebar">
-            <button onClick="toggle_close()" className="bar-header">Close &times;</button>
-          </aside>
+      <Menu>
+        <div className="burger">
+            <a id="home" className="menu-item" href="/">Home</a>
+              <button onClick="toggle_close()" className="bar-header">Close &times;</button>
+              <button className="hambuger  teal  xlarge" onClick="toggle_open()">☰</button>
+
+
+            </div>
+            </Menu>
 
           <header className="teal">
-            <button className="hambuger  teal  xlarge" onClick="toggle_open()">☰</button>
             <nav>
               <p> {this.props.placeholder} </p>
             </nav>
@@ -20,4 +31,6 @@ class Header extends Component {
       </div>
   )}
 }
+
+
 export default Header;
