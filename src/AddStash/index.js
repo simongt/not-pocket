@@ -59,7 +59,7 @@ class AddStash extends Component {
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <p>
             <label for="stash_url">URL</label>
-            <input 
+            <input
               type="url"
               name="stash_url"
               placeholder="http://"
@@ -71,13 +71,13 @@ class AddStash extends Component {
             <label for="is_public">Public or private?</label>
             <input
               type="radio"
-              name="is_public"
+              name="stash"
               checked
               value={this.state.is_public}
             /> public
             <input
               type="radio"
-              name="is_private" 
+              name="stash"
               value={!(this.state.is_public)}
             /> private
           </p>
