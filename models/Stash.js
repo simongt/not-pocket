@@ -15,9 +15,9 @@ Stash.all = () => {
     FROM stash as stash
     JOIN users as users
       ON users.id = stash.user_id
-    JOIN stash_tags as stash_tags
+    LEFT JOIN stash_tags as stash_tags
       ON stash_tags.stash_id = stash.id
-    JOIN tags as tags
+    LEFT JOIN tags as tags
       ON tags.id = stash_tags.tag_id
     GROUP BY stash.user_id, stash.id, stash.stash_url, stash.is_public, users.username
   `)
@@ -36,9 +36,9 @@ Stash.public = () => {
     FROM stash as stash
     JOIN users as users
       ON users.id = stash.user_id
-    JOIN stash_tags as stash_tags
+    LEFT JOIN stash_tags as stash_tags
       ON stash_tags.stash_id = stash.id
-    JOIN tags as tags
+    LEFT JOIN tags as tags
       ON tags.id = stash_tags.tag_id
     WHERE is_public = true
     GROUP BY stash.user_id, stash.id, stash.stash_url, stash.is_public, users.username
@@ -59,9 +59,9 @@ Stash.byUser = (id) => {
     FROM stash as stash
     JOIN users as users
       ON users.id = stash.user_id
-    JOIN stash_tags as stash_tags
+    LEFT JOIN stash_tags as stash_tags
       ON stash_tags.stash_id = stash.id
-    JOIN tags as tags
+    LEFT JOIN tags as tags
       ON tags.id = stash_tags.tag_id
     WHERE user_id = $<id>
     GROUP BY stash.user_id, stash.id, stash.stash_url, stash.is_public, users.username
@@ -81,9 +81,9 @@ Stash.byStashID = (id) => {
     FROM stash as stash
     JOIN users as users
       ON users.id = stash.user_id
-    JOIN stash_tags as stash_tags
+    LEFT JOIN stash_tags as stash_tags
       ON stash_tags.stash_id = stash.id
-    JOIN tags as tags
+    LEFT JOIN tags as tags
       ON tags.id = stash_tags.tag_id
     WHERE stash_id = $<id>
       GROUP BY stash.user_id, stash.id, stash.stash_url, stash.is_public, users.username

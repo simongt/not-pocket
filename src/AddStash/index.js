@@ -32,16 +32,16 @@ class AddStash extends Component {
     const newStash = {
       stash_url: this.state.stash_url,
       is_public: this.state.is_public,
-      user_id: this.state.user_id,
+      user_id: this.props.userId,
     }
 
-    fetch('/add-stash', {
-        method: "POST",
-        body: JSON.stringify(newStash),
-        headers: {
-          "Content-type": "application/json"
-        }
-      }).then(response => response.json())
+    fetch('/stash', {
+      method: "POST",
+      body: JSON.stringify(newStash),
+      headers: {
+        "Content-type": "application/json"
+      }
+    }).then(response => response.json())
       .then(stash => {
         this.setState({
           created: true
@@ -51,7 +51,7 @@ class AddStash extends Component {
 
   render() {
     if (this.state.created === true) {
-      return <Redirect to = "/" /> ;
+      return <Redirect to="/" />;
     }
     return (
       <div className="AddStash">
@@ -59,12 +59,12 @@ class AddStash extends Component {
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <p>
             <label for="stash_url">URL</label>
-            <input 
+            <input
               type="url"
               name="stash_url"
               placeholder="http://"
               value={this.state.stash_url}
-              />
+            />
           </p>
 
           <p>
@@ -77,7 +77,7 @@ class AddStash extends Component {
             /> public
             <input
               type="radio"
-              name="is_private" 
+              name="is_private"
               value={!(this.state.is_public)}
             /> private
           </p>

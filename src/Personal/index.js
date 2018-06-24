@@ -24,6 +24,7 @@ class Personal extends Component {
     fetch(`/byUser/${this.props.userId}.json`)
       .then(response => response.json())
       .then(userStashes => {
+        console.table(userStashes)
         this.setState({
           stashes : userStashes
         });
