@@ -13,14 +13,11 @@ class Header extends Component {
       return (
         <div className="Header">
       <h1>NotPocket</h1>
+          <button className="hambuger  teal  xlarge" onClick="toggle_open()">☰</button>
       <Menu>
-        <div className="burger">
             <a id="home" className="menu-item" href="/">Home</a>
               <button onClick="toggle_close()" className="bar-header">Close &times;</button>
-              <button className="hambuger  teal  xlarge" onClick="toggle_open()">☰</button>
 
-
-            </div>
             </Menu>
 
           <header className="teal">
