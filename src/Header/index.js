@@ -12,7 +12,7 @@ class Header extends Component {
             <nav>
               <p> {this.props.placeholder} </p>
             </nav>
-            <Burger />
+          <Burger />
       </div>
   )
 
