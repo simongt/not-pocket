@@ -143,9 +143,10 @@ app.post('/login', (request, response) => {
               request.session.loggedIn = true;
               request.session.user_id = dbResp.user_id;
               request.session.username = dbResp.username;
+              console.log(dbResp)
               return response.status(201).json({
                 response: "SUCCESS",
-                userid : dbResp.user_id,
+                userId: dbResp.id,
               });
             } else {
               response.status(403).json({
@@ -187,7 +188,8 @@ app.post('/register', (request, response) => {
             request.session.user_id = dbResp.user_id;
             request.session.username = dbResp.username;
             response.status(201).json({
-              response: "SUCCESS"
+              response: "SUCCESS",
+              userId: dbResp.id,
             });
           });
       }
