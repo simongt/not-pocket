@@ -21,9 +21,17 @@ CREATE TABLE tags (
 
 CREATE TABLE stash (
     id SERIAL PRIMARY KEY,
-    stash_url varchar(255) NOT NULL,
+    stash_url TEXT NOT NULL,
     is_public BOOLEAN DEFAULT false,
-    user_id INTEGER REFERENCES users(id)
+    user_id INTEGER REFERENCES users(id),
+    card_title TEXT,
+    card_type TEXT,
+    card_url TEXT,
+    card_site_name TEXT,
+    card_description TEXT,
+    card_image_url TEXT,
+    card_image_width TEXT,
+    card_image_height TEXT
 );
 
 CREATE TABLE stash_tags (
