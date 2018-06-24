@@ -11,13 +11,13 @@ class Stash extends Component {
             <img src="#" alt="img here" />
             <div className="container">
               <h4><b>Title</b></h4>
-              <div><Link to="/{this.props.stash.stash_url}" >Read Article </Link></div>
-
-
+              <Router>
+                <div><Link to="/{this.props.stash.stash_url}">Read Article</Link></div>
+              </Router>
               <p> tags here</p>
+            </div>
+          </div>
         </div>
-      </div>
-      </div>
       </body>
     )
   }
