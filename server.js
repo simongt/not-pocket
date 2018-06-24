@@ -135,7 +135,7 @@ app.post('/login', (request, response) => {
           response: "FORBIDDEN"
         })
       } else {
-        console.log(dbResp)
+        // console.log(dbResp)
         return bcrypt
           .compare(plainTextPassword, dbResp.password_digest)
           .then(res => {
@@ -145,7 +145,7 @@ app.post('/login', (request, response) => {
               request.session.username = dbResp.username;
               return response.status(201).json({
                 response: "SUCCESS",
-                userid : dbResp.id,
+                userid : dbResp.user_id,
               });
             } else {
               response.status(403).json({

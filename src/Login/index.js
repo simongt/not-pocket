@@ -38,7 +38,7 @@ class Login extends Component {
     })
       .then(response => response.json())
       .then(jsonResp => {
-        console.log(jsonResp)
+        console.log(`inside the login.jsx the response from server.js was ${jsonResp}`)
         if (jsonResp.response === "SUCCESS") {
           this.props.onUserLoggedIn(jsonResp)
         } else {

@@ -6,7 +6,7 @@ class Header extends Component {
     return (
       <div className="header">
         <div className="head">
-          <p> placeholder head </p>
+          <p> {this.props.placeholder} </p>
         </div>
       </div>
     )
