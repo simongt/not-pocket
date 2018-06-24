@@ -4,11 +4,16 @@ import "./style.css";
 class Stash extends Component {
   render() {
     return (
+      <body>
       <div className="Stash">
-        <h1>{this.props.stash.stash_url}</h1>
+        <div className="container">
+          <div>{this.props.stash.stash_url}</div>
+        </div>
       </div>
+      </body>
     )
   }
 }
 
 export default Stash;
+
