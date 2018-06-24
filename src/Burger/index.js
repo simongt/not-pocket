@@ -16,5 +16,4 @@ class Burger extends Component {
   }
 }
 
-
 export default Burger;
