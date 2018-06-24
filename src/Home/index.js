@@ -15,59 +15,28 @@ class Home extends Component {
 
     this.state = {
       stashes: [],
-      userLoggedIn: false,
     }
-    this.updateUserLoggedIn = this.updateUserLoggedIn.bind(this);
   }
 
-  updateUserLoggedIn(user) {
-    this.setState({
-      userLoggedIn: true,
-      userId: user.id
-    });
-  }
 
-  componentDidUpdate() {
+  componentDidMount() {
     // let id = this.props.match.params.id;
-    if (this.state.userLoggedIn === false) {
-      fetch(`/stashPublic.json`)
-        .then(response => response.json())
-        .then(stashes => {
-          this.setState({
-            stashes
-          });
+    fetch(`/stashPublic.json`)
+      .then(response => response.json())
+      .then(stashes => {
+        this.setState({
+          stashes
         });
-    } else {
-      fetch(`/byUser/${this.state.userId}.json`)
-        .then(response => response.json())
-        .then(stashes => {
-          this.setState({
-            stashes
-          });
-        });
-    }
+      });
   }
 
   render() {
-    if (!this.state.userLoggedIn) {
-      return (<div className="Home">
-        <Header placeholder="need to log in " />
-        <Login onUserLoggedIn={this.updateUserLoggedIn} />
-        <Register onUserLoggedIn={this.updateUserLoggedIn} />
-        {this.state.stashes.map(stash => {
-          return <Stash stash={stash} key={stash.stash_id} />
-        })}        <Footer />
-      </div>)
 
-    }
     return (
       <div className="Home">
-        <Header placeholder="Logged in" />
-        <AddStash />
         {this.state.stashes.map(stash => {
           return <Stash stash={stash} key={stash.stash_id} />
         })}
-        <Footer />
       </div>
     )
   }
