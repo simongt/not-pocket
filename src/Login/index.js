@@ -52,10 +52,10 @@ class Login extends Component {
     return (
         <div className="Login">
           <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
-            <h2>Already a member? Login!</h2>
-            <p>Username <input type="email" name="username" required value={this.state.username} /></p>
-            <p>Password <input type="password" name="password" required value={this.state.password} /></p>
-            <p><input type="submit" value="submit" /></p>
+            <h2>Log In</h2>
+            <p><input type="email" name="username" placeholder="Email or Username"required value={this.state.username} /></p>
+            <p><input type="password" name="password" placeholder="Password" required value={this.state.password} /></p>
+            <p><input type="submit" value="Log in" /></p>
           </form>
         </div>
     )
