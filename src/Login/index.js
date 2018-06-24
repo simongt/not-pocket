@@ -55,7 +55,7 @@ class Login extends Component {
             <h2>Log In</h2>
             <p><input type="email" name="username" placeholder="Email or Username"required value={this.state.username} /></p>
             <p><input type="password" name="password" placeholder="Password" required value={this.state.password} /></p>
-            <p><input type="submit" value="Log in" /></p>
+            <p><input className="button" type="submit" value="Log in" /></p>
           </form>
         </div>
     )
