@@ -19,18 +19,18 @@ VALUES
 INSERT INTO 
 stash (stash_url,is_public,user_id)
 VALUES
-('example.com/puppies','true','1'),
-('example.com/kittens','true','2'),
-('example.com/reptiles','false','3'),
-('example.com/lizards','false','4'),
-('example.com/puppies','true','1'),
-('example.com/monkeys','true','2'),
-('example.com/short_ppl','false','3'),
-('example.com/node','false','4'),
-('example.com/python','true','1'),
-('example.com/ruby','true','2'),
-('example.com/insects','false','3'),
-('example.com/dolphins','false','4');
+('https://www.boredpanda.com/unusual-animal-friendships-interspecies/','true','1'),
+('https://www.npr.org/2018/06/14/619860781/achilles-the-psychic-cat-predicts-russia-win-in-world-cup-opening-match','true','2'),
+('https://www.npr.org/2018/06/06/617422934/feral-peacocks-attack-cars-in-british-columbia','false','3'),
+('https://www.npr.org/2018/06/13/619491657/raccoon-is-trapped-in-minnesota-after-capturing-fans-worldwide','false','4'),
+('https://animalfactguide.com/2011/04/baby-cheetah-and-puppy-become-pals/','true','1'),
+('https://www.npr.org/2018/06/07/618047447/man-kills-snake-snake-tries-to-kill-him-back','true','2'),
+('https://animalfactguide.com/2011/04/baby-cheetah-and-puppy-become-pals/','false','3'),
+('https://news.nationalgeographic.com/2017/12/animals-rats-lions-weird-orcas/','false','4'),
+('https://pulptastic.com/17-touching-animal-stories-will-melt-heart/','true','1'),
+('https://www.neatorama.com/2011/02/11/the-8-most-romantic-creatures-in-the-animal-kingdom/','true','2'),
+('https://animalfactguide.com/animal-facts/meerkat/','false','3'),
+('https://animalfactguide.com/animal-facts/bottlenose-dolphin/','false','4');
 
 
 INSERT INTO 
