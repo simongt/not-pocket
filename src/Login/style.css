@@ -10,9 +10,16 @@
 .Login .button {
   background-color: #cb171f;
   width: 100%;
+  color: white;
+}
+
+.Login .button:hover {
+  background-color: #e21a23;
+  cursor: pointer;
 }
 
 .Login {
   display: flex;
   width: 100%;
+  color: rgb(85, 85, 85);
 }
