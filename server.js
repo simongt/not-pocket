@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
+const cardify = require('open-graph');
+
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({
   extended: true
@@ -95,13 +97,20 @@ app.get('/byStashID/:id.json', (request, response) => {
       response.json(stash)
     });
 });
+
 //Will likely need to be changed to a redirect
 app.post('/stash', (request, response) => {
   const stashInfo = request.body;
-  Stash.create(stashInfo)
-    .then(stash => {
-      response.json(stash)
-    })
+  const url = request.body.stash_url;
+  // cardify will grab stash's metadata (title, type, url, site_name, description, image.url, image.width, image.height)
+  cardify(url, function (err, meta) {
+    // will check for resolving err's later... for now, sticking to mvp
+    Stash.create(stashInfo, meta)
+      .then(stash => {
+        response.json(stash)
+      })
+  })
+
 })
 
 //Will likely need to be changed to a redirect
