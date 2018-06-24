@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./style.css";
 
+
 class Stash extends Component {
+
   render() {
     return (
       <body>
@@ -11,17 +13,22 @@ class Stash extends Component {
             <img src="#" alt="img here" />
             <div className="container">
               <h4><b>Title</b></h4>
-              <Router>
-                <div><Link to="/{this.props.stash.stash_url}">Read Article</Link></div>
-              </Router>
-              <p> tags here</p>
+              <div>
+              <a href={`https://www.${this.props.stash.stash_url}/`}> {this.props.stash.stash_url}</a>
+              </div>
+
+              <p>tags here</p>
             </div>
           </div>
         </div>
+
       </body>
     )
+
   }
+
 }
+
 
 
 
