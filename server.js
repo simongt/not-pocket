@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+app.use(bodyParser.json());
 
 //instantiate Helmet (basic form protection)
 const helmet = require('helmet');
@@ -124,6 +125,7 @@ app.get('/users.json', (request, response) => {
 
 
 app.post('/login', (request, response) => {
+  console.log(`login request user: ${request.body.username} pw: ${request.body.password}`)
   const username = request.body.username;
   const plainTextPassword = request.body.password;
   Users.findByUsername(username)
@@ -133,6 +135,7 @@ app.post('/login', (request, response) => {
           response: "FORBIDDEN"
         })
       } else {
+        // console.log(dbResp)
         return bcrypt
           .compare(plainTextPassword, dbResp.password_digest)
           .then(res => {
@@ -140,8 +143,10 @@ app.post('/login', (request, response) => {
               request.session.loggedIn = true;
               request.session.user_id = dbResp.user_id;
               request.session.username = dbResp.username;
+              console.log(dbResp)
               return response.status(201).json({
-                response: "SUCCESS"
+                response: "SUCCESS",
+                userId: dbResp.id,
               });
             } else {
               response.status(403).json({
@@ -159,6 +164,7 @@ app.get('/test', isLoggedIn, (request, response) => {
 
 
 app.post('/register', (request, response) => {
+  console.log(`login request user: ${request.body.username} pw: ${request.body.password}`)
   const plainTextPassword = request.body.password;
   const username = request.body.username;
   Users.findByUsername(username)
@@ -182,7 +188,8 @@ app.post('/register', (request, response) => {
             request.session.user_id = dbResp.user_id;
             request.session.username = dbResp.username;
             response.status(201).json({
-              response: "SUCCESS"
+              response: "SUCCESS",
+              userId: dbResp.id,
             });
           });
       }

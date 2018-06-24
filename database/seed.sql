@@ -1,10 +1,10 @@
 INSERT INTO 
 users (username,password_digest)
 VALUES
-('drl','OMFGHUNTER2'),
-('ykv','OMFGHUNTER1'),
-('sy','OMFGHUNTER3'),
-('ryl','OMFGHUNTER4');
+('drl@example.com','$2b$10$nRnN8OLG4pDO0NHKZZSjju7P4mVuR.vQqcf5wbyAao1dbNyXEMJ7S'),
+('ykv@example.com','$2b$10$nRnN8OLG4pDO0NHKZZSjju7P4mVuR.vQqcf5wbyAao1dbNyXEMJ7S'),
+('sy@example.com','$2b$10$nRnN8OLG4pDO0NHKZZSjju7P4mVuR.vQqcf5wbyAao1dbNyXEMJ7S'),
+('ryl@example.com','$2b$10$nRnN8OLG4pDO0NHKZZSjju7P4mVuR.vQqcf5wbyAao1dbNyXEMJ7S');
 
 
 INSERT INTO 

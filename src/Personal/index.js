@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "./style.css";
 import Header from "../Header";
+import Login from "../Login";
+import AddStash from "../AddStash"
 import Footer from "../Footer";
-import AddStash from "../AddStash";
 import Stash from "../Stash";
-
-
+import Register from "../Register"
+import { SSL_OP_PKCS1_CHECK_1 } from "constants";
 
 class Personal extends Component {
 
@@ -13,41 +14,32 @@ class Personal extends Component {
     super(props);
 
     this.state = {
-      id: 0,
-      stash_url: "",
-      user_id: "",
+      stashes: [],
     }
   }
 
+
   componentDidMount() {
-    // let id = this.props.match.params.id;
-    fetch(`/stash.json`)
+    console.log("mounted")
+    fetch(`/byUser/${this.props.userId}.json`)
       .then(response => response.json())
-      .then(stsh => {
+      .then(userStashes => {
         this.setState({
-          // id: stsh.id,
-          stash_url: stsh.stash_url,
-          user_id: stsh.user_id,
+          stashes : userStashes
         });
       });
   }
 
   render() {
+
     return (
       <div className="Personal">
-
-        <Header />
-
-        {/* <AddStash />
-        <Stash /> */}
-        
-        <Footer />
-
-        </div>
+        {this.state.stashes.map(stash => {
+          return <Stash stash={stash} key={stash.stash_id} />
+        })}
+      </div>
     )
   }
 }
-
-
 
 export default Personal;

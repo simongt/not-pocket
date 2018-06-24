@@ -3,23 +3,66 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./style.css";
 import Home from "../Home";
 import Personal from "../Personal";
+import Header from "../Header";
+import Login from "../Login";
+import AddStash from "../AddStash"
+import Footer from "../Footer";
+import Stash from "../Stash";
+import Register from "../Register"
 
 class App extends Component {
-  render() {
-    return (
-    <Router>
-      <div className="App">
-          <nav>
-            <Link to="/" >Personal View</Link>
-            <Link to="/Home" >Public View</Link>
+  constructor(props) {
+    super(props);
 
-          </nav>
-          <Route path="/" exact component={Personal} />
-          <Route path="/Home" exact component={Home} />
-      </div>
-    </Router>
-    )
+    this.state = {
+      stashes: [],
+      userLoggedIn: false,
+    }
+    this.updateUserLoggedIn = this.updateUserLoggedIn.bind(this);
   }
+
+  updateUserLoggedIn(user) {
+    this.setState({
+      userLoggedIn: true,
+      userId: user.userId
+    });
+  }
+
+
+  render() {
+
+    if (!this.state.userLoggedIn) {
+      return (
+        <Router>
+          <div className="App">
+            <Header placeholder="need to log in " />
+            <Login onUserLoggedIn={this.updateUserLoggedIn} />
+            <Register onUserLoggedIn={this.updateUserLoggedIn} />
+            {/* The header on the next line is temporary */}
+            <h1>These are public stashes</h1>
+            <Home />
+            <Footer />
+
+          </div>
+        </Router>
+      )
+    }
+    return (
+      <div className="App">
+        <Header placeholder="Logged In" />
+        {/* The header on the next line is temporary */}
+        <h1>These are personal stashes</h1>
+        <AddStash />
+        <Personal userId={this.state.userId} />
+        <Footer />
+
+      </div>
+    )
+
+
+  }
+
+
 }
 
 export default App;
