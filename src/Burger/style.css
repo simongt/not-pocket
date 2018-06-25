@@ -1,8 +1,37 @@
 .bm-burger-button {
   position: fixed;
-  width: 36px;
+  width: 30px;
   height: 30px;
-  left: 36px;
+  right: 36px;
   top: 36px;
-  filter: invert(100%);
 }
+
+.bm-overlay {
+  display: none;
+}
+
+.bm-burger-bars {
+  background: white;
+}
+
+.bm-cross {
+  background: white;
+}
+
+.bm-menu-wrap {
+  background-color: #cb171f;
+  right: inherit;
+  z-index: 10;
+  position: sticky;
+}
+
+.menu-item {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+nav {
+  height: 100%;
+}
+
