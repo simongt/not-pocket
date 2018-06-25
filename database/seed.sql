@@ -159,6 +159,19 @@ SET
   card_image_height = '666'
 WHERE id = 5;
 
+-- In this example, note that the site name is not being found by open-graph, therefore the site domain had to be extracted in server.js.
+UPDATE stash
+SET
+  card_title = 'The 11 Weirdest Animal Stories of 2017', 
+  card_type = 'article', 
+  card_url = 'https://news.nationalgeographic.com/2017/12/animals-rats-lions-weird-orcas/', 
+  card_site_name = 'news.nationalgeographic.com', 
+  card_description = 'From cannibalistic chimps to a new species of purple frog, here are our picks for Mother Nature''s best gifts of 2017.', 
+  card_image_url = 'https://news.nationalgeographic.com/content/dam/news/2017/08/24/frog-species/1-frog-species.ngsversion.1512711067498.adapt.1900.1.jpg', 
+  card_image_width = '1900', 
+  card_image_height = '1423'
+WHERE id = 8;
+
 -- UPDATE stash
 -- SET
 --   card_title = '', 
