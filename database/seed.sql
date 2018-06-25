@@ -146,6 +146,19 @@ SET
   card_image_height = null
 WHERE stash_url = 'https://www.instagram.com/jiffpom/';
 
+-- In this example, note that an image url is not being found by open-graph, therefore defaults are used in server.js
+UPDATE stash
+SET
+  card_title = 'Baby Cheetah and Puppy Become Pals', 
+  card_type = 'article', 
+  card_url = 'https://animalfactguide.com/2011/04/baby-cheetah-and-puppy-become-pals/', 
+  card_site_name = 'Animal Fact Guide', 
+  card_description = 'Starting today guests at Busch Gardens in Tampa, Florida will get to see an unlikely pair - a cheetah cub and a yellow Labrador puppy. The 8-week-old cheetah was taken in last month because his', 
+  card_image_url = '/not-pocket.png', 
+  card_image_width = '666', 
+  card_image_height = '666'
+WHERE id = 5;
+
 -- UPDATE stash
 -- SET
 --   card_title = '', 
