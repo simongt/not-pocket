@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./style.css";
 
-
 class Stash extends Component {
   render() {
     console.log(this.props.stash);
@@ -18,21 +17,9 @@ class Stash extends Component {
             </div>
           </div>
         </div>
-
       </body>
     )
-
   }
-
 }
 
-
-
-
-
-
-
-
-
 export default Stash;
-
