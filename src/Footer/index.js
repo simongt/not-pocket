@@ -4,12 +4,10 @@ import "./style.css";
 class Footer extends Component {
   render() {
     return (
-      <div className = "footer">
-      <footer>
-        <p>© Hy-Squa</p>
-      </footer>
+      <div className = "Footer">
+        <p>© HyperSquad</p>
       </div>
-    )
+    );
   }
 }
 
