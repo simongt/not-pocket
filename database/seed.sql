@@ -32,6 +32,57 @@ VALUES
 ('https://animalfactguide.com/animal-facts/meerkat/','false','3'),
 ('https://animalfactguide.com/animal-facts/bottlenose-dolphin/','false','4');
 
+CREATE TABLE stash
+(
+  id SERIAL PRIMARY KEY,
+  stash_url TEXT NOT NULL,
+  is_public BOOLEAN DEFAULT false,
+  user_id INTEGER REFERENCES users(id),
+  card_title TEXT,
+  card_type TEXT,
+  card_url TEXT,
+  card_site_name TEXT,
+  card_description TEXT,
+  card_image_url TEXT,
+  card_image_width TEXT,
+  card_image_height TEXT
+);
+
+UPDATE stash
+SET
+  card_title = '15 Unusual Animal Friendships That Will Melt Your Heart', 
+  card_type = 'article', 
+  card_url = 'https://www.boredpanda.com/unusual-animal-friendships-interspecies/', 
+  card_site_name = 'Bored Panda', 
+  card_description = 'There are some people out there that still believe that animals are just dumb beasts, but the unlikely animal friendships we''ve gathered here will prove that they are capable of feeling love and compassion just like we are. Naturally, all of these pictures are heart-breakingly adorable, but there''s more to it than that. Why did these animals form their friendships?', 
+  card_image_url = 'https://static.boredpanda.com/blog/wp-content/uploads/2014/01/unusual-animal-friendship-coverimage.jpg', 
+  card_image_width = NULL, 
+  card_image_height = NULL
+WHERE id = 1;
+
+-- UPDATE stash
+-- SET
+--   card_title = '', 
+--   card_type = '', 
+--   card_url = '', 
+--   card_site_name = '', 
+--   card_description = '', 
+--   card_image_url = '', 
+--   card_image_width = '', 
+--   card_image_height = ''
+-- WHERE id = 2;
+
+-- UPDATE stash
+-- SET
+--   card_title = '', 
+--   card_type = '', 
+--   card_url = '', 
+--   card_site_name = '', 
+--   card_description = '', 
+--   card_image_url = '', 
+--   card_image_width = '', 
+--   card_image_height = ''
+-- WHERE id = 3;
 
 INSERT INTO 
 stash_tags (stash_id,tag_id)
