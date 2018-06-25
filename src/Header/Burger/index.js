@@ -7,7 +7,7 @@ class Burger extends Component {
   render() {
     return (
       <div className="Burger">
-        <Menu right >
+        <Menu right>
           <a id="home" className="menu-item" href="/">Home</a>
         </Menu>
       </div>

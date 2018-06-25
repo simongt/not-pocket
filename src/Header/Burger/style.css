@@ -20,7 +20,18 @@
 
 .bm-menu-wrap {
   background-color: #cb171f;
-  position: fixed;
   right: inherit;
+  z-index: 10;
+  position: sticky;
+}
+
+.menu-item {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+nav {
   height: 100%;
 }
+
