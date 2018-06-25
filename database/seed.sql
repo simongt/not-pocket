@@ -110,6 +110,18 @@ SET
   card_image_height = null
 WHERE stash_url = 'https://www.npr.org/2018/06/07/618047447/man-kills-snake-snake-tries-to-kill-him-back';
 
+UPDATE stash
+SET
+  card_title = '13 Touching Animal Stories That Will Melt Your Heart', 
+  card_type = 'article', 
+  card_url = 'https://pulptastic.com/17-touching-animal-stories-will-melt-heart/', 
+  card_site_name = 'Pulptastic', 
+  card_description = 'Pass the tissues...', 
+  card_image_url = 'https://pulptastic2-homamedialtd.netdna-ssl.com/wp-content/uploads/2014/09/img8.jpg', 
+  card_image_width = null, 
+  card_image_height = null
+WHERE stash_url = 'https://pulptastic.com/17-touching-animal-stories-will-melt-heart/';
+
 -- UPDATE stash
 -- SET
 --   card_title = '', 
