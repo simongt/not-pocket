@@ -1,5 +1,10 @@
-.head{
-  margin: 0 auto;
-  height: 50px;
-  background-color: aquamarine;
+.Header {
+  background-color: #cb171f;
+  color: white;
+  position: sticky;
+  margin-top: -25px;
+}
+
+nav {
+  text-align: center;
 }

@@ -71,13 +71,13 @@ class AddStash extends Component {
             <label for="is_public">Public or private?</label>
             <input
               type="radio"
-              name="is_public"
+              name="stash"
               checked
               value={this.state.is_public}
             /> public
             <input
               type="radio"
-              name="is_private"
+              name="stash"
               value={!(this.state.is_public)}
             /> private
           </p>
