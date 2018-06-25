@@ -37,7 +37,7 @@ class Home extends Component {
 
 
           {this.state.stashes.map(stash => {
-            return <Stash stash={stash} key={stash.stash_id} />
+            return <Stash handleDeletion={this.props.handleDeletion} stash={stash} key={stash.stash_id} />
           })}
 
       </div>

@@ -17,8 +17,16 @@ class App extends Component {
     this.state = {
       stashes: [],
       userLoggedIn: false,
+      deletions : 0,
     }
     this.updateUserLoggedIn = this.updateUserLoggedIn.bind(this);
+    this.handleDeletion = this.handleDeletion.bind(this);
+  }
+
+  handleDeletion() {
+    this.setState({
+      deletions: this.state.deletions + 1
+    })
   }
 
   updateUserLoggedIn(user) {
@@ -37,7 +45,7 @@ class App extends Component {
           <div className="App">
             <Header onUserLoggedIn={this.updateUserLoggedIn} placeholder="need to log in " />
             <h1>These are public stashes</h1>
-            <Home />
+            <Home handleDeletion={this.handleDeletion}/>
             <Footer />
 
           </div>

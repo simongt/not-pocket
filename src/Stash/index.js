@@ -3,6 +3,31 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./style.css";
 
 class Stash extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       deleted : false
+    }
+
+    this.handleClick = this.handleClick.bind(this)
+  }
+  
+  handleClick = () => {
+    console.log("clickyclicky")
+    fetch(`/stash/${this.props.stash.stash_id}`, {
+      method: "put",
+      headers: {
+        "Content-type": "application/json"
+      }
+    }).then(response => response.json())
+      .then(stash => {
+        console.log(stash);
+        
+        this.props.handleDeletion()
+      });
+  }
+  
   render() {
     return (
       <div className="Stash">
@@ -21,6 +46,7 @@ class Stash extends Component {
           </h4>
           <p>{this.props.stash.card_description}</p>
           {/* <p>tags here</p> //we dont have time for tags */}
+            <button onClick={this.handleClick} >CLICKY</button>
         </div>
       </div>
       )}
