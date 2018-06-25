@@ -86,6 +86,20 @@ SET
   card_image_height = null
 WHERE stash_url = 'https://www.npr.org/2018/06/06/617422934/feral-peacocks-attack-cars-in-british-columbia';
 
+UPDATE stash
+SET
+  card_title = 'Raccoon Is Rescued Atop Building In Minnesota, After Capturing Fans Worldwide', 
+  card_type = 'article', 
+  card_url = 'https://www.npr.org/2018/06/13/619491657/raccoon-is-trapped-in-minnesota-after-capturing-fans-worldwide', 
+  card_site_name = 'NPR.org', 
+  card_description = 'The little creature climbed about two dozen stories of a St. Paul high-rise in pursuit of — well, that''s still a little unclear. But the now famous climber is safe after reaching the roof.', 
+  card_image_url = 'https://media.npr.org/assets/img/2018/06/13/raccoon2_wide-3b2176d9a00a17f181c31f9b59719a6ab877591d.jpg?s=1400', 
+  card_image_width = null, 
+  card_image_height = null
+WHERE stash_url = 'https://www.npr.org/2018/06/13/619491657/raccoon-is-trapped-in-minnesota-after-capturing-fans-worldwide';
+
+
+
 -- UPDATE stash
 -- SET
 --   card_title = '', 
