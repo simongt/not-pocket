@@ -8,14 +8,16 @@ class Stash extends Component {
     return (
       <body>
         <div className="Stash">
+        {/* <div className="container"> */}
           <div className="card">
-            <img src={this.props.stash.card_image_url} alt={this.props.stash.card_site_name} />
-            <div className="container">
-              <h4><a href={this.props.stash.stash_url}> {this.props.stash.card_site_name}</a></h4>
-              <p>{this.props.stash.card_description}</p>
-              <p>tags here</p>
-            </div>
+            <div> <img src={this.props.stash.card_image_url} alt={this.props.stash.card_site_name} /> </div>
+
+            <div><a href={this.props.stash.stash_url} TARGET="_blank"> {this.props.stash.card_site_name}</a></div>
+              <div>{this.props.stash.card_description}</div>
+              <div>tags here</div>
+
           </div>
+        {/* </div> */}
         </div>
       </body>
     )
