@@ -60,17 +60,30 @@ SET
   card_image_height = NULL
 WHERE id = 1;
 
--- UPDATE stash
--- SET
---   card_title = '', 
---   card_type = '', 
---   card_url = '', 
---   card_site_name = '', 
---   card_description = '', 
---   card_image_url = '', 
---   card_image_width = '', 
---   card_image_height = ''
--- WHERE id = 2;
+-- In this example, note that multiple image URLs are extracted and returned from cardify / open-graph
+UPDATE stash
+SET
+  card_title = 'Achilles The ''Psychic'' Cat Predicts Russia Win In World Cup Opening Match', 
+  card_type = 'article', 
+  card_url = 'https://www.npr.org/2018/06/14/619860781/achilles-the-psychic-cat-predicts-russia-win-in-world-cup-opening-match', 
+  card_site_name = 'NPR.org', 
+  card_description = 'Achilles is a designated rat hunter at Hermitage Museum in St. Petersburg. The museum veterinarian said the cat "loves his motherland and couldn''t vote otherwise."', 
+  card_image_url = 'https://media.npr.org/assets/img/2018/06/14/rtx68w5a_wide-1c3896af8ec1edb284d723de8d55f71cdd82cceb.jpg?s=1400', 
+  card_image_width = null, 
+  card_image_height = null
+WHERE id = 2;
+
+UPDATE stash
+SET
+  card_title = 'Baby Cheetah and Puppy Become Pals', 
+  card_type = 'article', 
+  card_url = 'https://animalfactguide.com/2011/04/baby-cheetah-and-puppy-become-pals/', 
+  card_site_name = 'Animal Fact Guide', 
+  card_description = 'Starting today guests at Busch Gardens in Tampa, Florida will get to see an unlikely pair - a cheetah cub and a yellow Labrador puppy. The 8-week-old cheetah was taken in last month because his', 
+  card_image_url = '/not-pocket.png', 
+  card_image_width = '666px', 
+  card_image_height = '666px'
+WHERE id = 7;
 
 -- UPDATE stash
 -- SET
