@@ -61,6 +61,19 @@ SET
   card_image_height = NULL
 WHERE id = 1;
 
+-- In this example, note that multiple image URLs are extracted and returned from cardify / open-graph. Also it doesn't show below, but '\' was being used to delimit the quotation marks and had to be removed in server.js.
+UPDATE stash
+SET
+  card_title = 'Achilles The ''Psychic'' Cat Predicts Russia Win In World Cup Opening Match', 
+  card_type = 'article', 
+  card_url = 'https://www.npr.org/2018/06/14/619860781/achilles-the-psychic-cat-predicts-russia-win-in-world-cup-opening-match', 
+  card_site_name = 'NPR.org', 
+  card_description = 'Achilles is a designated rat hunter at Hermitage Museum in St. Petersburg. The museum veterinarian said the cat "loves his motherland and couldn''t vote otherwise."', 
+  card_image_url = 'https://media.npr.org/assets/img/2018/06/14/rtx68w5a_wide-1c3896af8ec1edb284d723de8d55f71cdd82cceb.jpg?s=1400', 
+  card_image_width = null, 
+  card_image_height = null
+WHERE stash_url = 'https://www.boredpanda.com/unusual-animal-friendships-interspecies/';
+
 -- UPDATE stash
 -- SET
 --   card_title = '', 
