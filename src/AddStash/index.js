@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, BrowserRouter as Router } from "react-router-dom";
 import "./style.css";
 
 // AddStash is formatted as a toggled aside
@@ -51,12 +51,19 @@ class AddStash extends Component {
   }
 
   render() {
+    if (this.state.created === true) {
+      return (
+      <Router>
+      <Redirect to={'/App'} />
+      </Router>
+      )
+    }
     return (
       <div className="AddStash">
         <h1>Stash A New URL</h1>
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <p>
-            <label for="stash_url">URL</label>
+            <label htmlFor="stash_url">URL</label>
             <input
               type="url"
               name="stash_url"
@@ -66,7 +73,7 @@ class AddStash extends Component {
           </p>
 
           <p>
-            <label for="is_public">Public or private?</label>
+            <label htmlFor="is_public">Public or private?</label>
             <input
               type="radio"
               name="is_public"
@@ -79,7 +86,6 @@ class AddStash extends Component {
               value="false"
             /> private
           </p>
-
           <p>
             <input type="submit" value="Stash it!" />
           </p>
