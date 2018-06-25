@@ -11,10 +11,12 @@ class Header extends Component {
       return (
         <body>
           <div className="header">
-            <h1>NotPocket</h1>
+          <div>
+            <img className="img" src="./not-pocket.png" />
+            <h1>notpocket</h1>
+            </div>
             <nav>
               <p> {this.props.placeholder} </p>
-
             </nav>
             <Burger onUserLoggedIn={this.props.onUserLoggedIn} />
         </div>

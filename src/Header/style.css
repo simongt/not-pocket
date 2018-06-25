@@ -1,15 +1,34 @@
-body{
+body {
   margin: 0;
   padding: 0;
 }
 
 .header {
-  background-color: #cb171f;
+  background-color: #55BCC9;
   color: white;
   position: sticky;
   margin-top: -20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header h1 {
+  font-size: 50px;
+  margin-top: 20px;
+  padding: 10px;
+  margin-left: 70px;
+}
+
+.header .img {
+  height: 70px;
+  padding: 0;
+  width: 70px;
+  top: 0;
+  left: 0;
+  position: fixed;
+  filter: invert(1);
 }
 
 nav {
   text-align: center;
+  padding: 0;
 }
