@@ -98,7 +98,17 @@ SET
   card_image_height = null
 WHERE stash_url = 'https://www.npr.org/2018/06/13/619491657/raccoon-is-trapped-in-minnesota-after-capturing-fans-worldwide';
 
-
+UPDATE stash
+SET
+  card_title = 'Man Kills Snake; Snake Tries To Kill Him Back', 
+  card_type = 'article', 
+  card_url = 'https://www.npr.org/2018/06/07/618047447/man-kills-snake-snake-tries-to-kill-him-back', 
+  card_site_name = 'NPR.org', 
+  card_description = 'Trying to save his wife from a diamondback rattler, Jeremy Sutcliffe decapitated the snake with a shovel. But when he went to pick up the head, it bit him — delivering a near deadly dose of venom.', 
+  card_image_url = 'https://media.npr.org/assets/img/2018/06/07/ap_97110902064_wide-c1375d7c1e67f53d5ce6f0fc78798cd321437e42.jpg?s=1400', 
+  card_image_width = null, 
+  card_image_height = null
+WHERE stash_url = 'https://www.npr.org/2018/06/07/618047447/man-kills-snake-snake-tries-to-kill-him-back';
 
 -- UPDATE stash
 -- SET
