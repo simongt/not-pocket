@@ -74,6 +74,18 @@ SET
   card_image_height = null
 WHERE stash_url = 'https://www.boredpanda.com/unusual-animal-friendships-interspecies/';
 
+UPDATE stash
+SET
+  card_title = 'Feral Peacocks Attack Cars In British Columbia', 
+  card_type = 'article', 
+  card_url = 'https://www.npr.org/2018/06/06/617422934/feral-peacocks-attack-cars-in-british-columbia', 
+  card_site_name = 'NPR.org', 
+  card_description = 'Wild peacocks are attacking cars in Surrey, British Columbia. Experts say they see their reflections and think they are other peacocks.', 
+  card_image_url = 'https://media.npr.org/include/images/facebook-default-wide.jpg?s=1400', 
+  card_image_width = null, 
+  card_image_height = null
+WHERE stash_url = 'https://www.npr.org/2018/06/06/617422934/feral-peacocks-attack-cars-in-british-columbia';
+
 -- UPDATE stash
 -- SET
 --   card_title = '', 
