@@ -1,9 +1,18 @@
 .bm-burger-button {
   position: fixed;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 38px;
   right: 36px;
-  top: 36px;
+  top: 30px;
+  filter: invert(1);
+}
+
+.Burger img:hover {
+  background-color: #FC4445;
+}
+
+.bm-burger-button :hover {
+  background-color: #FC4445;
 }
 
 .bm-overlay {
