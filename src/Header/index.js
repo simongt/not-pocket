@@ -5,6 +5,8 @@ import "./style.css";
 
 
 class Header extends Component {
+  
+
     render() {
       return (
         <body>
@@ -14,7 +16,7 @@ class Header extends Component {
               <p> {this.props.placeholder} </p>
 
             </nav>
-            <Burger />
+            <Burger onUserLoggedIn={this.props.onUserLoggedIn} />
         </div>
       </body>
   )

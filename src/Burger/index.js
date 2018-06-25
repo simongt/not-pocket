@@ -11,8 +11,8 @@ class Burger extends Component {
       <div className="Burger">
         <Menu right>
           <a id="home" className="menu-item" href="/">Home</a>
-          <Login />
-          <Register />
+          <Login onUserLoggedIn={this.props.onUserLoggedIn} />
+          <Register onUserLoggedIn={this.props.onUserLoggedIn} />
         </Menu>
       </div>
     )

@@ -35,7 +35,7 @@ class App extends Component {
       return (
         <Router>
           <div className="App">
-            <Header placeholder="need to log in " />
+            <Header onUserLoggedIn={this.updateUserLoggedIn} placeholder="need to log in " />
             <h1>These are public stashes</h1>
             <Home />
             <Footer />
@@ -46,7 +46,8 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <Header placeholder="Logged In" />
+        <Header onUserLoggedIn={this.updateUserLoggedIn} placeholder="Logged In" />
+
         {/* The header on the next line is temporary */}
         <h1>These are personal stashes</h1>
         <AddStash />
