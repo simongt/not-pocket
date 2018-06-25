@@ -140,14 +140,14 @@ app.post('/stash', (request, response) => {
       if (!meta.image) {
         meta.image = {
           url: '/not-pocket.png',
-          width: '666px',
-          height: '666px'
+          width: '666',
+          height: '666'
         };
       }
       if (!meta.image.url) {
         meta.image.url = '/not-pocket.png';
-        meta.image.width = '666px';
-        meta.image.height = '666px';
+        meta.image.width = '666';
+        meta.image.height = '666';
       }
       // check for more than one image being extracted by cardify, only return first image
       if (Array.isArray(meta.image.url)) {
