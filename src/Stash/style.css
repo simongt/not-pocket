@@ -1,18 +1,21 @@
-.stash{
+.Stash{
   margin: 0 auto;
   max-width: 900px;
+  /* border: 5px solid black; */
+  margin: 20px;
+/* align-self: stretch; */
 }
 
-.card {
-  /* not working ???? */
-  /* display: flex;
-  flex-direction: row;
-  flex-wrap: wrap; */
-
+.Stash {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 40%;
+  /* width: 40%; */
   text-align: justify;
+
+
+  /* display: flex; */
+  /* align-items: center;
+  justify-content: center; */
 
     /* display: grid;
     grid-gap: 5px;
@@ -21,16 +24,26 @@
 
 }
 
+.stash-link {
+  display: block;
+}
+
+.stash-img {
+  display: block;
+}
+
 div{
-  margin: 10px 10px;
+  /* margin: 10px 10px;
   min-width: 200px;
-  max-width: 600px;
+  max-width: 600px; */
   /* padding: 5px; */
 }
 
+
+
 .card img {
   width: 100%;
-  height: 200px;
+  /* height: 200px; */
 }
 
 .card:hover {

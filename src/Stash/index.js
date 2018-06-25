@@ -7,9 +7,11 @@ class Stash extends Component {
     return (
       <div className="Stash">
         <div className="card">
-            <a href={this.props.stash.stash_url} target="_blank">
-              <img src={this.props.stash.card_image_url} alt={this.props.stash.card_site_name} />
+            <div>
+            <a className="stash-link" href={this.props.stash.stash_url} target="_blank">
+              <img className="stash-img" src={this.props.stash.card_image_url} alt={this.props.stash.card_site_name} />
             </a>
+            </div>
 
           <h4>
             <a href={this.props.stash.stash_url} target="_blank">
