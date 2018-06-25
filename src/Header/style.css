@@ -1,8 +1,13 @@
-.Header {
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.header {
   background-color: #cb171f;
   color: white;
   position: sticky;
-  margin-top: -25px;
+  margin: -20px;
 }
 
 nav {

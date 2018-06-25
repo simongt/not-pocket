@@ -15,10 +15,10 @@ class Stash extends Component {
             <a href={this.props.stash.stash_url} target="_blank">
               {this.props.stash.card_title}
             </a>
-            &nbsp; <i>({this.props.stash.card_site_name})</i>
+            &nbsp;<i>({this.props.stash.card_site_name})</i>
           </h4>
           <p>{this.props.stash.card_description}</p>
-          <p>tags here</p>
+          {/* <p>tags here</p> //we dont have time for tags */}
         </div>
       </div>
       )}

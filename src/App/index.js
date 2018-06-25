@@ -36,9 +36,6 @@ class App extends Component {
         <Router>
           <div className="App">
             <Header placeholder="need to log in " />
-            <Login onUserLoggedIn={this.updateUserLoggedIn} />
-            <Register onUserLoggedIn={this.updateUserLoggedIn} />
-            {/* The header on the next line is temporary */}
             <h1>These are public stashes</h1>
             <Home />
             <Footer />
