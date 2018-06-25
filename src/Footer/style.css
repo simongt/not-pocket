@@ -1,0 +1,10 @@
+.Footer p {
+  position: absolute;
+  padding: 10px;
+  background-color: #55BCC9;
+  text-align: center;
+  color: white;
+  left: 0;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
