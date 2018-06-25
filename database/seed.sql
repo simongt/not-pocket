@@ -46,6 +46,20 @@ CREATE TABLE stash
   card_image_width TEXT,
   card_image_height TEXT
 );
+-- The following stash entries are examples of how server.js sends a submitted url along with its meta (card) data.
+
+-- In this example, open-graph seems to extract everything fine (there's no image width/height, but since that's trivial, we can leave it set to NULL through server.js)
+UPDATE stash
+SET
+  card_title = '15 Unusual Animal Friendships That Will Melt Your Heart', 
+  card_type = 'article', 
+  card_url = 'https://www.boredpanda.com/unusual-animal-friendships-interspecies/', 
+  card_site_name = 'Bored Panda', 
+  card_description = 'There are some people out there that still believe that animals are just dumb beasts, but the unlikely animal friendships we''ve gathered here will prove that they are capable of feeling love and compassion just like we are. Naturally, all of these pictures are heart-breakingly adorable, but there''s more to it than that. Why did these animals form their friendships?', 
+  card_image_url = 'https://static.boredpanda.com/blog/wp-content/uploads/2014/01/unusual-animal-friendship-coverimage.jpg', 
+  card_image_width = NULL, 
+  card_image_height = NULL
+WHERE id = 1;
 
 -- UPDATE stash
 -- SET
