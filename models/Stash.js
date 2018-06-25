@@ -5,19 +5,27 @@ const Stash = {};
 //Returns all stashes
 Stash.all = () => {
   return db.any(`
-    SELECT stash.user_id as user_id,
-      stash.id as stash_id,
+    SELECT stash.user_id AS user_id,
+      stash.id AS stash_id,
       stash.stash_url,
       stash.is_public,
       users.username,
-      array_agg(stash_tags.tag_id) as tag_ids,
-      array_agg(tags.tag) as tags
-    FROM stash as stash
-    JOIN users as users
+      array_agg(stash_tags.tag_id) AS tag_ids,
+      array_agg(tags.tag) AS tags, 
+      stash.card_title, 
+      stash.card_type, 
+      stash.card_url, 
+      stash.card_site_name, 
+      stash.card_description, 
+      stash.card_image_url, 
+      stash.card_image_width, 
+      stash.card_image_height
+    FROM stash AS stash
+    JOIN users AS users
       ON users.id = stash.user_id
-    LEFT JOIN stash_tags as stash_tags
+    LEFT JOIN stash_tags AS stash_tags
       ON stash_tags.stash_id = stash.id
-    LEFT JOIN tags as tags
+    LEFT JOIN tags AS tags
       ON tags.id = stash_tags.tag_id
     GROUP BY stash.user_id, stash.id, stash.stash_url, stash.is_public, users.username
   `);
@@ -26,19 +34,27 @@ Stash.all = () => {
 //Returns all public stashes
 Stash.public = () => {
   return db.any(`
-    SELECT stash.user_id as user_id,
-      stash.id as stash_id,
+    SELECT stash.user_id AS user_id,
+      stash.id AS stash_id,
       stash.stash_url,
       stash.is_public,
       users.username,
-      array_agg(stash_tags.tag_id) as tag_ids,
-      array_agg(tags.tag) as tags
-    FROM stash as stash
-    JOIN users as users
+      array_agg(stash_tags.tag_id) AS tag_ids,
+      array_agg(tags.tag) AS tags, 
+      stash.card_title, 
+      stash.card_type, 
+      stash.card_url, 
+      stash.card_site_name, 
+      stash.card_description, 
+      stash.card_image_url, 
+      stash.card_image_width, 
+      stash.card_image_height
+    FROM stash AS stash
+    JOIN users AS users
       ON users.id = stash.user_id
-    LEFT JOIN stash_tags as stash_tags
+    LEFT JOIN stash_tags AS stash_tags
       ON stash_tags.stash_id = stash.id
-    LEFT JOIN tags as tags
+    LEFT JOIN tags AS tags
       ON tags.id = stash_tags.tag_id
     WHERE is_public = true
     GROUP BY stash.user_id, stash.id, stash.stash_url, stash.is_public, users.username
@@ -49,19 +65,27 @@ Stash.public = () => {
 Stash.byUser = (id) => {
   console.log(id)
   return db.any(`
-    SELECT stash.user_id as user_id,
-      stash.id as stash_id,
+    SELECT stash.user_id AS user_id,
+      stash.id AS stash_id,
       stash.stash_url,
       stash.is_public,
       users.username,
-      array_agg(stash_tags.tag_id) as tag_ids,
-      array_agg(tags.tag) as tags
-    FROM stash as stash
-    JOIN users as users
+      array_agg(stash_tags.tag_id) AS tag_ids,
+      array_agg(tags.tag) AS tags, 
+      stash.card_title, 
+      stash.card_type, 
+      stash.card_url, 
+      stash.card_site_name, 
+      stash.card_description, 
+      stash.card_image_url, 
+      stash.card_image_width, 
+      stash.card_image_height
+    FROM stash AS stash
+    JOIN users AS users
       ON users.id = stash.user_id
-    LEFT JOIN stash_tags as stash_tags
+    LEFT JOIN stash_tags AS stash_tags
       ON stash_tags.stash_id = stash.id
-    LEFT JOIN tags as tags
+    LEFT JOIN tags AS tags
       ON tags.id = stash_tags.tag_id
     WHERE user_id = $<id>
     GROUP BY stash.user_id, stash.id, stash.stash_url, stash.is_public, users.username
@@ -71,19 +95,27 @@ Stash.byUser = (id) => {
 //Returns stash matching provided stash ID
 Stash.byStashID = (id) => {
   return db.one(`
-    SELECT stash.user_id as user_id,  
-      stash.id as stash_id,
+    SELECT stash.user_id AS user_id,  
+      stash.id AS stash_id,
       stash.stash_url,
       stash.is_public,
       users.username,
-      array_agg(stash_tags.tag_id) as tag_ids,
-      array_agg(tags.tag) as tags
-    FROM stash as stash
-    JOIN users as users
+      array_agg(stash_tags.tag_id) AS tag_ids,
+      array_agg(tags.tag) AS tags, 
+      stash.card_title, 
+      stash.card_type, 
+      stash.card_url, 
+      stash.card_site_name, 
+      stash.card_description, 
+      stash.card_image_url, 
+      stash.card_image_width, 
+      stash.card_image_height
+    FROM stash AS stash
+    JOIN users AS users
       ON users.id = stash.user_id
-    LEFT JOIN stash_tags as stash_tags
+    LEFT JOIN stash_tags AS stash_tags
       ON stash_tags.stash_id = stash.id
-    LEFT JOIN tags as tags
+    LEFT JOIN tags AS tags
       ON tags.id = stash_tags.tag_id
     WHERE stash_id = $<id>
       GROUP BY stash.user_id, stash.id, stash.stash_url, stash.is_public, users.username
