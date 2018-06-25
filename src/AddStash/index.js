@@ -13,8 +13,8 @@ class AddStash extends Component {
     this.state = {
       stash_url: "",
       is_public: true,
-      // user_id: ? (how to add currently logged user's id here)
       created: false,
+      newStashes : []
     }
     this.onFormChange = this.onFormChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -47,19 +47,14 @@ class AddStash extends Component {
     }).then(response => response.json())
       .then(stash => {
         this.setState({
-          created: true
+          created: true,
+          newStashes: [...this.state.newStashes,stash].reverse(),
+          stash_url: "",
         });
       });
   }
 
   render() {
-    if (this.state.created === true) {
-      return (
-      <Router>
-      <Redirect to={'/App'} />
-      </Router>
-      )
-    }
     return (
       <div className="AddStash">
         <h1>Stash A New URL</h1>
@@ -73,7 +68,6 @@ class AddStash extends Component {
               value={this.state.stash_url}
             />
           </p>
-
           <p>
             <label htmlFor="is_public">Public or private?</label>
             <input
@@ -92,7 +86,9 @@ class AddStash extends Component {
             <input type="submit" value="Stash it!" />
           </p>
         </form>
-        {/* <Stash /> */}
+        {this.state.newStashes.map(stash => {
+          return <Stash stash={stash} key={stash.stash_id} />
+        })}
       </div>
     );
   }
