@@ -134,6 +134,18 @@ SET
   card_image_height = null
 WHERE stash_url = 'https://www.neatorama.com/2011/02/11/the-8-most-romantic-creatures-in-the-animal-kingdom/';
 
+UPDATE stash
+SET
+  card_title = 'jiffpom 🐻 (@jiffpom) • Instagram photos and videos', 
+  card_type = 'profile', 
+  card_url = 'https://www.instagram.com/jiffpom/', 
+  card_site_name = 'www.instagram.com', 
+  card_description = '8.8m Followers, 73 Following, 565 Posts - See Instagram photos and videos from jiffpom 🐻 (@jiffpom)', 
+  card_image_url = 'https://scontent-lga3-1.cdninstagram.com/vp/91c7d629bcf5859e66f1f6cd1f683c99/5BE290B6/t51.2885-19/s150x150/10848196_1563671617278891_682728791_a.jpg', 
+  card_image_width = null, 
+  card_image_height = null
+WHERE stash_url = 'https://www.instagram.com/jiffpom/';
+
 -- UPDATE stash
 -- SET
 --   card_title = '', 
