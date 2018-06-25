@@ -52,14 +52,14 @@ class Register extends Component {
 
   render() {
     return (
-        <div className="register">
-          <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
-            <h2>Want to start stashing? Sign up!</h2>
-            <p>Username <input type="email" name="username" required value={this.state.username} /></p>
-            <p>Password <input type="password" name="password" required value={this.state.password} /></p>
-            <p><input type="submit" value="submit" /></p>
-          </form>
-        </div>
+      <div className="Register">
+        <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
+          <h2>Want to start stashing? Sign up!</h2>
+          <p>Username <input type="email" name="username" required value={this.state.username} /></p>
+          <p>Password <input type="password" name="password" required value={this.state.password} /></p>
+          <p><input className="button" type="submit" value="submit" /></p>
+        </form>
+      </div>
     )
   }
 }
