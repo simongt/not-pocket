@@ -54,10 +54,10 @@ class Register extends Component {
     return (
       <div className="Register">
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
-          <h2>Want to start stashing? Sign up!</h2>
-          <p>Username <input type="email" name="username" required value={this.state.username} /></p>
-          <p>Password <input type="password" name="password" required value={this.state.password} /></p>
-          <p><input className="button" type="submit" value="submit" /></p>
+          <h2>Sign Up</h2>
+          <p><input type="email" name="username" required value={this.state.username} /></p>
+          <p><input type="password" name="password" required value={this.state.password} /></p>
+          <p><input className="button" type="submit" value="Sign up" /></p>
         </form>
       </div>
     )
