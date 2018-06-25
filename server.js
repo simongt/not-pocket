@@ -105,29 +105,60 @@ app.get('/byStashID/:id.json', (request, response) => {
 app.post('/stash', (request, response) => {
   const stashInfo = request.body;
   const url = request.body.stash_url;
+  // console.log(url);
   // cardify will grab stash's metadata (title, type, url, site_name, description, image.url, image.width, image.height)
   cardify(url, function (err, meta) {
     // if error does not exist, add meta data to stashed url
-    if(!err) {
+    if (!err) {
       // if any meta data is not provided, set it to null
-      if(!meta.title)
+      if (!meta.title) {
         meta.title = null;
-      if(!meta.type)
+      }
+      if (!meta.type) {
         meta.type = null;
-      if(!meta.url)
-        meta.url = null;
-      if(!meta.site_name)
-        meta.site_name = null;
-      if(!meta.description)
+      }
+      if (!meta.url) {
+        meta.url = url;
+      }
+      // extract site name by splitting the submitted url by '/', such that 'http://sitename.com/path/to/url' returns 'sitename.com'
+      if (!meta.site_name) {
+        if (url.substr(0,4) === 'http' && url.split('/')[2]) {
+          meta.site_name = url.split('/')[2];
+        } else if (url.split('/')[0]) {
+          meta.site_name = url.split('/')[0];
+        } else {
+          meta.site_name = null;
+        }
+      }
+      // remove instances of '\'
+      if(meta.description.includes('\\')) {
+        meta.description = meta.description.replace('\\','');
+      }
+      if (!meta.description) {
         meta.description = null;
-      if(!meta.image)
-        meta.image = null;
-      if(!meta.image.url)
-        meta.image.url = null;
-      if(!meta.image.width)
+      }
+      if (!meta.image) {
+        meta.image = {
+          url: '/not-pocket.png',
+          width: '666px',
+          height: '666px'
+        };
+      }
+      if (!meta.image.url) {
+        meta.image.url = '/not-pocket.png';
+        meta.image.width = '666px';
+        meta.image.height = '666px';
+      }
+      // check for more than one image being extracted by cardify, only return first image
+      if (Array.isArray(meta.image.url)) {
+        meta.image.url = meta.image.url[0];
+      }
+      if (!meta.image.width) {
         meta.image.width = null;
-      if(!meta.image.height)
+      }
+      if (!meta.image.height) {
         meta.image.height = null;
+      }
 
       console.log(`stash accepted:`);
       console.log(meta);
