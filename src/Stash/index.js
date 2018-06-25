@@ -14,7 +14,7 @@ class Stash extends Component {
             <div className="container">
               <h4><b>Title</b></h4>
               <div>
-              <a href={`https://www.${this.props.stash.stash_url}/`}> {this.props.stash.stash_url}</a>
+              <a href={`${this.props.stash.stash_url}/`}> {this.props.stash.stash_url}</a>
               </div>
 
               <p>tags here</p>
