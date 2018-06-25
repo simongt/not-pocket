@@ -131,7 +131,7 @@ app.post('/stash', (request, response) => {
         }
       }
       // remove instances of '\'
-      if(meta.description.includes('\\')) {
+      if (meta.description && meta.description.includes('\\')) {
         meta.description = meta.description.replace('\\','');
       }
       if (!meta.description) {
