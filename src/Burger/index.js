@@ -9,8 +9,7 @@ class Burger extends Component {
   render() {
     return (
       <div className="Burger">
-        <Menu right>
-          <a id="home" className="menu-item" href="/">Home</a>
+        <Menu right customBurgerIcon={<img src="http://icons.iconarchive.com/icons/custom-icon-design/silky-line-user/512/user-icon.png" /> }>
           <Login onUserLoggedIn={this.props.onUserLoggedIn} />
           <Register onUserLoggedIn={this.props.onUserLoggedIn} />
         </Menu>
