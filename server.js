@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
+const cardify = require('open-graph');
+
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({
   extended: true
@@ -61,7 +63,7 @@ app.use('/static', express.static('build/static'));
 // and fallback to 4567
 const PORT = process.env.PORT || 4567;
 
-
+// GET ROUTE: http://localhost:4567/stashAll.json
 app.get('/stashAll.json', (request, response) => {
   Stash.all()
     .then(stash => {
@@ -69,6 +71,7 @@ app.get('/stashAll.json', (request, response) => {
     });
 });
 
+// GET ROUTE: http://localhost:4567/stashPublic.json
 app.get('/stashPublic.json', (request, response) => {
   Stash.public()
     .then(stash => {
@@ -76,6 +79,7 @@ app.get('/stashPublic.json', (request, response) => {
     });
 });
 
+// GET ROUTE: http://localhost:4567/byUser/1.json
 app.get('/byUser/:id.json', (request, response) => {
   const id = request.params.id;
   Stash.byUser({
@@ -86,6 +90,7 @@ app.get('/byUser/:id.json', (request, response) => {
     });
 });
 
+// GET ROUTE: http://localhost:4567/byStashID/1.json
 app.get('/byStashID/:id.json', (request, response) => {
   const id = request.params.id;
   Stash.byStashID({
@@ -95,14 +100,63 @@ app.get('/byStashID/:id.json', (request, response) => {
       response.json(stash)
     });
 });
-//Will likely need to be changed to a redirect
+
+// Will likely need to be changed to a redirect
 app.post('/stash', (request, response) => {
   const stashInfo = request.body;
-  Stash.create(stashInfo)
-    .then(stash => {
-      response.json(stash)
-    })
+  const url = request.body.stash_url;
+  // cardify will grab stash's metadata (title, type, url, site_name, description, image.url, image.width, image.height)
+  cardify(url, function (err, meta) {
+    // if error does not exist, add meta data to stashed url
+    if(!err) {
+      // if any meta data is not provided, set it to null
+      if(!meta.title)
+        meta.title = null;
+      if(!meta.type)
+        meta.type = null;
+      if(!meta.url)
+        meta.url = null;
+      if(!meta.site_name)
+        meta.site_name = null;
+      if(!meta.description)
+        meta.description = null;
+      if(!meta.image)
+        meta.image = null;
+      if(!meta.image.url)
+        meta.image.url = null;
+      if(!meta.image.width)
+        meta.image.width = null;
+      if(!meta.image.height)
+        meta.image.height = null;
+
+      console.log(`URL accepted:`);
+      console.log(meta);
+
+      Stash.create(stashInfo, meta)
+        .then(stash => {
+          response.json(stash)
+        })
+      } else {
+        console.log(`URL not accepted, see error message:`);
+        console.log(err);
+      }
+  });
 })
+
+/*
+  {
+    Error: getaddrinfo ENOTFOUND www.infoocusmedia.us www.infoocusmedia.us: 443
+    at GetAddrInfoReqWrap.onlookup[as oncomplete](dns.js: 67: 26)
+    message: 'getaddrinfo ENOTFOUND www.infoocusmedia.us www.infoocusmedia.us:443',
+    errno: 'ENOTFOUND',
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'www.infoocusmedia.us',
+    host: 'www.infoocusmedia.us',
+    port: 443
+  }
+
+ */
 
 //Will likely need to be changed to a redirect
 app.put('/stash/:id', (request, response) => {

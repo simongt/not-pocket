@@ -20,7 +20,7 @@ Stash.all = () => {
     LEFT JOIN tags as tags
       ON tags.id = stash_tags.tag_id
     GROUP BY stash.user_id, stash.id, stash.stash_url, stash.is_public, users.username
-  `)
+  `);
 }
 
 //Returns all public stashes
@@ -42,7 +42,7 @@ Stash.public = () => {
       ON tags.id = stash_tags.tag_id
     WHERE is_public = true
     GROUP BY stash.user_id, stash.id, stash.stash_url, stash.is_public, users.username
-  `)
+  `);
 }
 
 //Returns all stashes by a given user
@@ -65,7 +65,7 @@ Stash.byUser = (id) => {
       ON tags.id = stash_tags.tag_id
     WHERE user_id = $<id>
     GROUP BY stash.user_id, stash.id, stash.stash_url, stash.is_public, users.username
-  `, id)
+  `, id);
 }
 
 //Returns stash matching provided stash ID
@@ -87,16 +87,19 @@ Stash.byStashID = (id) => {
       ON tags.id = stash_tags.tag_id
     WHERE stash_id = $<id>
       GROUP BY stash.user_id, stash.id, stash.stash_url, stash.is_public, users.username
-  `, id)
+  `, id);
 }
 
 //Creates a new stash, returns information includeing stash_id
-Stash.create = (stashInfo) => {
+Stash.create = (stashInfo, cardInfo) => {
+  /*
+    cardInfo will allow us extract title, type, url, site_name, description, image.url, image.width, image.height
+  */
   return db.one(`
-        INSERT INTO stash (stash_url,is_public,user_id)
-        VALUES ($<stash_url>,$<is_public>,$<user_id>)
+        INSERT INTO stash (stash_url, is_public, user_id, card_title, card_type, card_url, card_site_name, card_description, card_image_url, card_image_width, card_image_height)
+        VALUES ($<stashInfo.stash_url>, $<stashInfo.is_public>, $<stashInfo.user_id>, $<cardInfo.title>, $<cardInfo.type>, $<cardInfo.url>, $<cardInfo.site_name>, $<cardInfo.description>, $<cardInfo.image.url>, $<cardInfo.image.width>, $<cardInfo.image.height>)
         RETURNING *
-    `, stashInfo)
+    `, {stashInfo, cardInfo});
 }
 
 //Deletes stash matching provided ID
