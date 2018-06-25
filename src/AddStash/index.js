@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Redirect, BrowserRouter as Router } from "react-router-dom";
+import Stash from "../Stash";
+
 import "./style.css";
 
 // AddStash is formatted as a toggled aside
@@ -90,6 +92,7 @@ class AddStash extends Component {
             <input type="submit" value="Stash it!" />
           </p>
         </form>
+        {/* <Stash /> */}
       </div>
     );
   }
