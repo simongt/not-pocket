@@ -13,9 +13,6 @@ class Stash extends Component {
             <img src={this.props.stash.card_image_url} alt={this.props.stash.card_site_name} />
             <div className="container">
               <h4><a href={this.props.stash.stash_url}> {this.props.stash.card_site_name}</a></h4>
-              <div>
-              
-              </div>
               <p>{this.props.stash.card_description}</p>
               <p>tags here</p>
             </div>
