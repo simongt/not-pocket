@@ -129,7 +129,7 @@ app.post('/stash', (request, response) => {
       if(!meta.image.height)
         meta.image.height = null;
 
-      console.log(`URL accepted:`);
+      console.log(`stash accepted:`);
       console.log(meta);
 
       Stash.create(stashInfo, meta)
@@ -137,7 +137,7 @@ app.post('/stash', (request, response) => {
           response.json(stash)
         })
       } else {
-        console.log(`URL not accepted, see error message:`);
+        console.log(`stash not accepted, see error message:`);
         console.log(err);
       }
   });

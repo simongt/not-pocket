@@ -4,19 +4,19 @@ import "./style.css";
 
 
 class Stash extends Component {
-
   render() {
+    console.log(this.props.stash);
     return (
       <body>
         <div className="Stash">
           <div className="card">
-            <img src="#" alt="img here" />
+            <img src={this.props.stash.card_image_url} alt={this.props.stash.card_site_name} />
             <div className="container">
-              <h4><b>Title</b></h4>
+              <h4><b>{this.props.stash.card_site_name}</b></h4>
               <div>
-              <a href={`https://www.${this.props.stash.stash_url}/`}> {this.props.stash.stash_url}</a>
+              <a href={this.props.stash.stash_url}> {this.props.stash.stash_url}</a>
               </div>
-
+              <p>{this.props.stash.card_description}</p>
               <p>tags here</p>
             </div>
           </div>
