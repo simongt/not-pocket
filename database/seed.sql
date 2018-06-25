@@ -122,6 +122,18 @@ SET
   card_image_height = null
 WHERE stash_url = 'https://pulptastic.com/17-touching-animal-stories-will-melt-heart/';
 
+UPDATE stash
+SET
+  card_title = 'The 8 Most Romantic Creatures In The Animal Kingdom', 
+  card_type = 'article', 
+  card_url = 'https://www.neatorama.com/2011/02/11/the-8-most-romantic-creatures-in-the-animal-kingdom/', 
+  card_site_name = 'Neatorama', 
+  card_description = 'While humans are not biologically programmed to be monogamous (only 3% of all mammals are), our social structure is largely based around romantic partnerships. To celebrate our own romantic attachments, lets reflect on some of nature’s most loving couples. Albatrosses If you’re looking for the animal mating ritual that most closely resembles human dating, don’t look to primates, even mammals, instead, check out the albatross. These massive seabirds take a long time to reach sexual maturity –up to...', 
+  card_image_url = 'http://www.neatorama.com/wp-content/uploads/2011/02/LAAL_adult_sky_call.jpg', 
+  card_image_width = null, 
+  card_image_height = null
+WHERE stash_url = 'https://www.neatorama.com/2011/02/11/the-8-most-romantic-creatures-in-the-animal-kingdom/';
+
 -- UPDATE stash
 -- SET
 --   card_title = '', 
