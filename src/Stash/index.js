@@ -10,9 +10,9 @@ class Stash extends Component {
         <div className="Stash">
         {/* <div className="container"> */}
           <div className="card">
-            <div> <img src={this.props.stash.card_image_url} alt={this.props.stash.card_site_name} /> </div>
+           <img src={this.props.stash.card_image_url} alt={this.props.stash.card_site_name} />
 
-            <div><a href={this.props.stash.stash_url} TARGET="_blank"> {this.props.stash.card_site_name}</a></div>
+          <div><a href={this.props.stash.stash_url} TARGET="_blank"> {this.props.stash.card_site_name}</a></div>
               <div>{this.props.stash.card_description}</div>
               <div>tags here</div>
 
