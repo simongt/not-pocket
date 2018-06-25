@@ -12,7 +12,6 @@ class Personal extends Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
       stashes: [],
     }
@@ -24,6 +23,7 @@ class Personal extends Component {
     fetch(`/byUser/${this.props.userId}.json`)
       .then(response => response.json())
       .then(userStashes => {
+        console.table(userStashes)
         this.setState({
           stashes : userStashes
         });

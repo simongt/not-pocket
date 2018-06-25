@@ -162,6 +162,7 @@ app.post('/stash', (request, response) => {
 
       console.log(`stash accepted:`);
       console.log(meta);
+      console.log(stashInfo)
 
       Stash.create(stashInfo, meta)
         .then(stash => {
