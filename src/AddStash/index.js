@@ -22,6 +22,7 @@ class AddStash extends Component {
     const element = event.target;
     const name = element.name;
     const value = element.value;
+    const is_public = element.is_public;
     const newState = {};
     newState[name] = value;
     this.setState(newState);
@@ -50,9 +51,6 @@ class AddStash extends Component {
   }
 
   render() {
-    if (this.state.created === true) {
-      return <Redirect to="/" />;
-    }
     return (
       <div className="AddStash">
         <h1>Stash A New URL</h1>
@@ -71,14 +69,14 @@ class AddStash extends Component {
             <label for="is_public">Public or private?</label>
             <input
               type="radio"
-              name="stash"
+              name="is_public"
               checked
-              value={this.state.is_public}
+              value="true"
             /> public
             <input
               type="radio"
-              name="stash"
-              value={!(this.state.is_public)}
+              name="is_public"
+              value="false"
             /> private
           </p>
 
