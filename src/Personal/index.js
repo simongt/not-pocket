@@ -57,7 +57,7 @@ class Personal extends Component {
       .then(userStashes => {
         console.table(userStashes)
         this.setState({
-          stashes: userStashes
+          stashes: userStashes.reverse()
         });
       });
   }
