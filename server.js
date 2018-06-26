@@ -139,13 +139,13 @@ app.post('/stash', (request, response) => {
       }
       if (!meta.image) {
         meta.image = {
-          url: '/not-pocket.png',
+          url: '/not-pocket-white.png',
           width: '666',
           height: '666'
         };
       }
       if (!meta.image.url) {
-        meta.image.url = '/not-pocket.png';
+        meta.image.url = '/not-pocket-white.png';
         meta.image.width = '666';
         meta.image.height = '666';
       }

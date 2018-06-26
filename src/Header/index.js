@@ -11,7 +11,7 @@ class Header extends Component {
     return (
         <div className="header">
           <div>
-            <img className="img" src="./not-pocket.png" />
+            <img className="img" src="./not-pocket-white.png" />
             <h1>notpocket</h1>
           </div>
           <nav>
