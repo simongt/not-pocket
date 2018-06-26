@@ -38,7 +38,6 @@ class App extends Component {
         <Router>
           <div className="App">
             <Header onUserLoggedIn={this.updateUserLoggedIn} placeholder="need to log in " />
-            <h1>These are public stashes</h1>
             <Home userLoggedIn={this.state.userLoggedIn} />
             <Footer />
 
@@ -51,10 +50,10 @@ class App extends Component {
         <Header onUserLoggedIn={this.updateUserLoggedIn} placeholder="Logged In" />
 
         {/* The header on the next line is temporary */}
-        <h1>These are personal stashes</h1>
+
         <AddStash userId={this.state.userId}/>
-        <Personal 
-          userId={this.state.userId} 
+        <Personal
+          userId={this.state.userId}
           userLoggedIn={this.state.userLoggedIn}
           />
         <Footer />
