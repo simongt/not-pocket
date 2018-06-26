@@ -23,7 +23,6 @@ class Stash extends Component {
     }).then(response => response.json())
       .then(stash => {
         console.log(stash);
-        
         this.props.handleDeletion()
       });
   }
@@ -46,7 +45,9 @@ class Stash extends Component {
           </h4>
           <p>{this.props.stash.card_description}</p>
           {/* <p>tags here</p> //we dont have time for tags */}
+          if (this.props.userLoggedIn === true) {
             <button onClick={this.handleClick} >CLICKY</button>
+          }
         </div>
       </div>
       )}

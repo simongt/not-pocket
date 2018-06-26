@@ -53,7 +53,10 @@ class App extends Component {
         {/* The header on the next line is temporary */}
         <h1>These are personal stashes</h1>
         <AddStash userId={this.state.userId}/>
-        <Personal userId={this.state.userId} />
+        <Personal 
+          userId={this.state.userId} 
+          userLoggedIn={this.state.userLoggedIn}
+          />
         <Footer />
 
       </div>

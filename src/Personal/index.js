@@ -14,9 +14,26 @@ class Personal extends Component {
     super(props);
     this.state = {
       stashes: [],
+      deletions: 0,
     }
+    this.handleDeletion = this.handleDeletion.bind(this);
+  }
+  handleDeletion() {
+    this.setState({
+      deletions: this.state.deletions + 1
+    })
   }
 
+  componentDidUpdate() {
+    // let id = this.props.match.params.id;
+    fetch(`/stashPublic.json`)
+      .then(response => response.json())
+      .then(stashes => {
+        this.setState({
+          stashes
+        });
+      });
+  }
 
   componentDidMount() {
     console.log("mounted")
@@ -25,7 +42,7 @@ class Personal extends Component {
       .then(userStashes => {
         console.table(userStashes)
         this.setState({
-          stashes : userStashes
+          stashes: userStashes
         });
       });
   }
@@ -35,7 +52,12 @@ class Personal extends Component {
     return (
       <div className="Personal">
         {this.state.stashes.map(stash => {
-          return <Stash stash={stash} key={stash.stash_id} />
+          return <Stash 
+            handleDeletion={this.handleDeletion} 
+            stash={stash} 
+            key={stash.stash_id} 
+            userLoggedIn={this.props.userLoggedIn}
+          />
         })}
       </div>
     )
