@@ -35,18 +35,18 @@ class App extends Component {
 
     if (!this.state.userLoggedIn) {
       return (
-        <Router>
+        // <Router>
           <div className="App">
-            <Header 
-              onUserLoggedIn={this.updateUserLoggedIn} 
-              placeholder="need to log in " 
+            <Header
+              onUserLoggedIn={this.updateUserLoggedIn}
+              placeholder="need to log in "
               userLoggedIn={this.state.userLoggedIn}
             />
             <Home userLoggedIn={this.state.userLoggedIn} />
             <Footer />
 
           </div>
-        </Router>
+        // </Router>
       )
     }
     return (
