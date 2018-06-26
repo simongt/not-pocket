@@ -63,7 +63,7 @@ class Personal extends Component {
     return (
       <div className="Personal">
 
-      <a href="Home"> Return to Public Stash </a>
+        <button className="home-button"><a className="home-link" href="Home"> Return to Public Stash </a></button>
 
       <AddStash
         userId={this.props.userId}
