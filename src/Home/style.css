@@ -3,3 +3,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
+.Home img{
+  max-height: 200px;
+}
