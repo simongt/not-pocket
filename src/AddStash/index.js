@@ -83,7 +83,7 @@ class AddStash extends Component {
             /> private
           </p>
           <p>
-            <input type="submit" value="Stash it!" />
+            <input className="button" type="submit" value="Stash it!" />
           </p>
         </form>
         {this.state.newStashes.map(stash => {
