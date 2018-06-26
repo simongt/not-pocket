@@ -14,7 +14,6 @@ class AddStash extends Component {
       stash_url: "",
       is_public: true,
       created: false,
-      newStashes : []
     }
     this.onFormChange = this.onFormChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -48,7 +47,6 @@ class AddStash extends Component {
       .then(stash => {
         this.setState({
           created: true,
-          newStashes: [...this.state.newStashes,stash].reverse(),
           stash_url: "",
         });
       });
@@ -86,9 +84,6 @@ class AddStash extends Component {
             <input className="button" type="submit" value="Stash it!" />
           </p>
         </form>
-        {this.state.newStashes.map(stash => {
-          return <Stash stash={stash} key={stash.stash_id} />
-        })}
       </div>
     );
   }
