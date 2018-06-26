@@ -37,7 +37,11 @@ class App extends Component {
       return (
         <Router>
           <div className="App">
-            <Header onUserLoggedIn={this.updateUserLoggedIn} placeholder="need to log in " />
+            <Header 
+              onUserLoggedIn={this.updateUserLoggedIn} 
+              placeholder="need to log in " 
+              userLoggedIn={this.state.userLoggedIn}
+            />
             <Home userLoggedIn={this.state.userLoggedIn} />
             <Footer />
 
@@ -47,15 +51,19 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <Header onUserLoggedIn={this.updateUserLoggedIn} placeholder="Logged In" />
+        <Header
+          onUserLoggedIn={this.updateUserLoggedIn}
+          placeholder="Logged In"
+          userLoggedIn={this.state.userLoggedIn}
+        />
 
         {/* The header on the next line is temporary */}
 
-        
+
         <Personal
           userId={this.state.userId}
           userLoggedIn={this.state.userLoggedIn}
-          />
+        />
         <Footer />
 
       </div>
