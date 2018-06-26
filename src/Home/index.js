@@ -15,11 +15,29 @@ class Home extends Component {
 
     this.state = {
       stashes: [],
+      deletions: 0,
     }
+    this.handleDeletion = this.handleDeletion.bind(this);
+
+  }
+  handleDeletion() {
+    this.setState({
+      deletions: this.state.deletions + 1
+    })
   }
 
-
   componentDidMount() {
+    // let id = this.props.match.params.id;
+    fetch(`/stashPublic.json`)
+      .then(response => response.json())
+      .then(stashes => {
+        this.setState({
+          stashes
+        });
+      });
+  }
+
+  componentDidUpdate() {
     // let id = this.props.match.params.id;
     fetch(`/stashPublic.json`)
       .then(response => response.json())
@@ -34,10 +52,8 @@ class Home extends Component {
 
     return (
       <div className="Home">
-
-
           {this.state.stashes.map(stash => {
-            return <Stash handleDeletion={this.props.handleDeletion} stash={stash} key={stash.stash_id} />
+            return <Stash handleDeletion={this.handleDeletion} stash={stash} key={stash.stash_id} />
           })}
 
       </div>
