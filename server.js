@@ -57,7 +57,7 @@ app.use(session({
 //END persistent session storage
 
 
-app.use('/static', express.static('build/static'));
+app.use('/static', express.static('./build/static'));
 
 // Set the port based on the environment variable (PORT=8080 node server.js)
 // and fallback to 4567
