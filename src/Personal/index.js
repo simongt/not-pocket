@@ -65,7 +65,7 @@ class Personal extends Component {
   render() {
 
     return (<div className="Personal">
-      <AddStash 
+      <AddStash
         userId={this.props.userId}
         handleNewStash={this.handleNewStash}
       />

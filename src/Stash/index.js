@@ -27,14 +27,6 @@ class Stash extends Component {
       });
   }
 
-  // drawButton () {
-  //   if (this.props.userLoggedIn === true) {
-  //     return <button onClick={this.handleClick} >CLICKY</button>
-  //   } else {
-  //     return <div>FAKE BUTTON</div>
-  //   }
-  // }
-
   render() {
     if (this.props.userLoggedIn === true) {
       return (
