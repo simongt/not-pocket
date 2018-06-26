@@ -37,7 +37,10 @@ class Home extends Component {
     return (
       <div className="Home">
           {this.state.stashes.map(stash => {
-            return <Stash  stash={stash} key={stash.stash_id} />
+            return <Stash  stash={stash}
+            key={stash.stash_id} 
+            userLoggedIn={this.props.userLoggedIn}
+              />
           })}
 
       </div>
