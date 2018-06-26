@@ -32,9 +32,18 @@ li, p{
   text-align: justify;
 }
 
-
-
 div.Personal{
   max-width: 800px;
   margin: 0 auto;
+}
+
+/* a .link-tag{
+  text-align: center;
+} */
+
+.delete-button{
+  background-color: red;
+  border-radius: 8px;
+  margin: 5px;
+  color: white;
 }
