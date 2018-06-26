@@ -46,38 +46,3 @@ it('delete button appears only when user is logged in', () => {
   // output.simulate('click');
   // expect(output.state().clicked).toEqual(true);
 });
-
-
-/*
-card_description:
-"There are some people out there that still believe that animals are just dumb beasts, but the unlikely animal friendships we've gathered here will prove that they are capable of feeling love and compa…"
-card_image_height:
-null
-card_image_url:
-"https://static.boredpanda.com/blog/wp-content/uploads/2014/01/unusual-animal-friendship-coverimage.jpg"
-card_image_width:
-null
-card_site_name:
-"Bored Panda"
-card_title:
-"15 Unusual Animal Friendships That Will Melt Your Heart"
-card_type:
-"article"
-card_url:
-"https://www.boredpanda.com/unusual-animal-friendships-interspecies/"
-
-is_public:
-true
-stash_id:
-16
-stash_url:
-"https://www.boredpanda.com/unusual-animal-friendships-interspecies/"
-tag_ids:
-Array[1]
-tags:
-Array[1]
-user_id:
-5
-username:
-"simon.tsegay@gmail.com"
-*/
