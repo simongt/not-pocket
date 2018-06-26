@@ -39,14 +39,14 @@ class Stash extends Component {
             </div>
 
             <h4>
-              <a href={this.props.stash.stash_url} target="_blank" class="link-tag">
+              <a href={this.props.stash.stash_url} target="_blank" className="link-tag">
                 {this.props.stash.card_title}
               </a>
               &nbsp;<i>({this.props.stash.card_site_name})</i>
             </h4>
             <p>{this.props.stash.card_description}</p>
             {/* <p>tags here</p> //we dont have time for tags */}
-            <button onClick={this.handleClick}>Delete</button>
+            <button className="delete-button" onClick={this.handleClick}>Delete</button>
           </div>
         </div>
       )

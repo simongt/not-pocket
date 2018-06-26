@@ -4,7 +4,7 @@
   margin: 20px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-
+  font-family: 'Open Sans', sans-serif;
 }
 
 .stash-link {
@@ -13,7 +13,6 @@
 
 .stash-img {
   display: block;
-
 }
 
 .card img {
@@ -32,9 +31,18 @@ li, p{
   text-align: justify;
 }
 
-
-
 div.Personal{
   max-width: 800px;
   margin: 0 auto;
+}
+
+/* a .link-tag{
+  text-align: center;
+} */
+
+.delete-button{
+  background-color: red;
+  border-radius: 8px;
+  margin: 5px;
+  color: white;
 }
