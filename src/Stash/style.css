@@ -13,6 +13,7 @@
 
 .stash-img {
   display: block;
+
 }
 
 .card img {
@@ -32,3 +33,8 @@ li, p{
 }
 
 
+
+div.Personal{
+  max-width: 800px;
+  margin: 0 auto;
+}

@@ -6,9 +6,10 @@ body {
 .header {
   background-color: #55BCC9;
   color: white;
-  position: sticky;
-  margin-top: -20px;
+  /* position: sticky;
+  margin-top: -20px; */
   font-family: 'Roboto', sans-serif;
+  margin-bottom: 20px;
 }
 
 .header h1 {
