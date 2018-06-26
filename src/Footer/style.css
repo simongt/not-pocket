@@ -3,9 +3,8 @@
   background-color: #55BCC9;
   text-align: center;
   color: white;
-  position: sticky;
+  /* position: sticky; */
   font-family: 'Open Sans', sans-serif;
   width: 100%;
-  position: absolute;
-  bottom: -20px;
+  margin: 0;
 }

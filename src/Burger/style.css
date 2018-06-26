@@ -34,8 +34,9 @@
   background-color: #FC4445;
   right: inherit;
   z-index: 10;
-  position: sticky;
+  position: fixed;
 }
+
 
 nav {
   height: 100%;
