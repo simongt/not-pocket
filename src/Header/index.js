@@ -5,25 +5,27 @@ import "./style.css";
 
 
 class Header extends Component {
-  
 
-    render() {
-      return (
-        <body>
-          <div className="header">
+
+  render() {
+    return (
+        <div className="header">
           <div>
             <img className="img" src="./not-pocket.png" />
             <h1>notpocket</h1>
-            </div>
-            <nav>
-              <p> {this.props.placeholder} </p>
-            </nav>
-            <Burger onUserLoggedIn={this.props.onUserLoggedIn} />
+          </div>
+          <nav>
+            <p> {this.props.placeholder} </p>
+          </nav>
+          <Burger
+            onUserLoggedIn={this.props.onUserLoggedIn}
+            userLoggedIn={this.props.userLoggedIn}
+          />
         </div>
-      </body>
-  )
+    )
 
-  }}
+  }
+}
 
 
-  export default Header;
+export default Header;
