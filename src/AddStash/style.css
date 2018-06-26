@@ -1,7 +1,7 @@
 .AddStash {
   color: #FC4445;
   position: sticky;
-  margin-top: -20px;
+  /* margin-top: -20px; */
   font-family: 'Roboto', sans-serif;
 }
 
@@ -10,6 +10,12 @@
   width: 20%;
   color: #FC4445;
   border-color: #55BCC9;
+
+
+}
+
+.fix-button{
+  margin-left: 190px;
 }
 
 
@@ -24,6 +30,10 @@
   border-color: #55BCC9;
 
 }
+.AddStash .class-input {
+ /* margin-left: 140px; */
+  text-align: center;
+}
 
 .AddStash input:hover {
   border-color: #FC4445;
@@ -34,4 +44,8 @@ color: white;
 cursor: pointer;
 background-color: #55BCC9;
 border-color: #FC4445;
+}
+
+#move-radio{
+  text-align: center;
 }
