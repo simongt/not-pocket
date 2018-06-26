@@ -73,7 +73,7 @@ SET
   card_image_url = 'https://media.npr.org/assets/img/2018/06/14/rtx68w5a_wide-1c3896af8ec1edb284d723de8d55f71cdd82cceb.jpg?s=1400', 
   card_image_width = NULL, 
   card_image_height = NULL
-WHERE stash_url = 'https://www.boredpanda.com/unusual-animal-friendships-interspecies/';
+WHERE stash_url = 'https://www.npr.org/2018/06/14/619860781/achilles-the-psychic-cat-predicts-russia-win-in-world-cup-opening-match';
 
 UPDATE stash
 SET
