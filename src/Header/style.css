@@ -24,7 +24,8 @@ body {
   width: 70px;
   top: 0;
   left: 0;
-  position: fixed;
+  position: relative;
+  top: 90px;
   filter: invert(1);
 }
 

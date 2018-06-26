@@ -9,7 +9,7 @@ class Burger extends Component {
   render() {
     return (
       <div className="Burger">
-        <Menu right customBurgerIcon={<img src="http://www.stickpng.com/assets/images/585e4be1cb11b227491c3398.png" /> }>
+        <Menu right customBurgerIcon={<img className="move-ing" src="http://www.stickpng.com/assets/images/585e4be1cb11b227491c3398.png" /> }>
           <Login onUserLoggedIn={this.props.onUserLoggedIn} />
           <Register onUserLoggedIn={this.props.onUserLoggedIn} />
         </Menu>
