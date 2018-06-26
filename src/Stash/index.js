@@ -9,8 +9,8 @@ class Stash extends Component {
     this.state = {
        deleted : false
     }
-
     this.handleClick = this.handleClick.bind(this)
+    this.drawButton = this.drawButton.bind(this)
   }
   
   handleClick = () => {
@@ -25,6 +25,14 @@ class Stash extends Component {
         console.log(stash);
         this.props.handleDeletion()
       });
+  }
+
+  drawButton () {
+    if (this.props.userLoggedIn === true) {
+      return <button onClick={this.handleClick} >CLICKY</button>
+    } else {
+      return <div>FAKE BUTTON</div>
+    }
   }
   
   render() {
@@ -45,9 +53,7 @@ class Stash extends Component {
           </h4>
           <p>{this.props.stash.card_description}</p>
           {/* <p>tags here</p> //we dont have time for tags */}
-          if (this.props.userLoggedIn === true) {
-            <button onClick={this.handleClick} >CLICKY</button>
-          }
+        {this.drawButton}
         </div>
       </div>
       )}
