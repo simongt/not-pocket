@@ -172,6 +172,30 @@ SET
   card_image_height = '1423'
 WHERE id = 8;
 
+UPDATE stash
+SET
+  card_title = null, 
+  card_type = null, 
+  card_url = 'https://twitter.com/adoptionforpets?lang=en', 
+  card_site_name = 'twitter.com', 
+  card_description = null, 
+  card_image_url = '/not-pocket.png', 
+  card_image_width = '666', 
+  card_image_height = '666'
+WHERE stash_url = 'https://twitter.com/adoptionforpets?lang=en';
+
+UPDATE stash
+SET
+  card_title = null, 
+  card_type = null, 
+  card_url = 'https://www.facebook.com/BabblePets/', 
+  card_site_name = 'www.facebook.com', 
+  card_description = null, 
+  card_image_url = '/not-pocket.png',
+  card_image_width = '666', 
+  card_image_height = '666'
+WHERE stash_url = 'https://www.facebook.com/BabblePets/';
+
 -- UPDATE stash
 -- SET
 --   card_title = '', 
