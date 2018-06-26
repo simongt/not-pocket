@@ -19,8 +19,10 @@ class Personal extends Component {
     this.state = {
       stashes: [],
       deletion: false,
+      newStash: false,
     }
     this.handleDeletion = this.handleDeletion.bind(this);
+    this.handleNewStash = this.handleNewStash.bind(this);
   }
   handleDeletion() {
     this.setState({
@@ -28,14 +30,21 @@ class Personal extends Component {
     })
   }
 
+  handleNewStash() {
+    this.setState({
+      newStash: true,
+    })
+  }
+
   componentDidUpdate() {
-    if (this.state.deletion === true) {
-      fetch(`/stashPublic.json`)
+    if (this.state.deletion === true || this.state.newStash === true) {
+      fetch(`/byUser/${this.props.userId}.json`)
         .then(response => response.json())
         .then(stashes => {
           this.setState({
             stashes: stashes.reverse(),
             deletion: false,
+            newStash: false,
           });
         });
     }
@@ -55,26 +64,21 @@ class Personal extends Component {
 
   render() {
 
-    return ( <
-      div className = "Personal" > {
-        this.state.stashes.map(stash => {
-          return <Stash
-          handleDeletion = {
-            this.handleDeletion
-          }
-          stash = {
-            stash
-          }
-          key = {
-            stash.stash_id
-          }
-          userLoggedIn = {
-            this.props.userLoggedIn
-          }
-          />
-        })
-      } <
-      /div>
+    return (<div className="Personal">
+      <AddStash 
+        userId={this.props.userId}
+        handleNewStash={this.handleNewStash}
+      />
+      {this.state.stashes.map(stash => {
+        return <Stash
+          handleDeletion={this.handleDeletion}
+          handleNewStash={this.handleNewStash}
+          stash={stash}
+          key={stash.stash_id}
+          userLoggedIn={this.props.userLoggedIn}
+        />
+      })
+      } </div>
     )
   }
 }

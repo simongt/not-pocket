@@ -45,10 +45,7 @@ class AddStash extends Component {
       }
     }).then(response => response.json())
       .then(stash => {
-        this.setState({
-          created: true,
-          stash_url: "",
-        });
+        this.props.handleNewStash()
       });
   }
 
