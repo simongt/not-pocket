@@ -25,7 +25,7 @@ class Home extends Component {
       .then(response => response.json())
       .then(stashes => {
         this.setState({
-          stashes
+          stashes: stashes.reverse()
         });
       });
   }

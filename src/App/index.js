@@ -51,7 +51,7 @@ class App extends Component {
 
         {/* The header on the next line is temporary */}
 
-        <AddStash userId={this.state.userId}/>
+        
         <Personal
           userId={this.state.userId}
           userLoggedIn={this.state.userLoggedIn}
