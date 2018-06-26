@@ -15,7 +15,7 @@ class Header extends Component {
             <h1>notpocket</h1>
           </div>
           <nav>
-            <p> {this.props.placeholder} </p>
+            {/* <p> {this.props.placeholder} </p> */}
           </nav>
           <Burger
             onUserLoggedIn={this.props.onUserLoggedIn}

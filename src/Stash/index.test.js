@@ -20,3 +20,11 @@ it('should handle state changes', () => {
   output.simulate('click');
   expect(output.state().clicked).toEqual(true);
 });
+
+
+// it('button componet', () => {
+//   it('renders as a <button>.', () => {
+//     const wrapper = shallow(<Button onclick="234455" />);
+//     expect(wrapper.is('button')).toEqual(true);
+//   });
+// });
