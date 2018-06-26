@@ -1,6 +1,4 @@
-import React, {
-  Component
-} from "react";
+import React, {Component} from "react";
 import "./style.css";
 import Header from "../Header";
 import Login from "../Login";
@@ -8,9 +6,7 @@ import AddStash from "../AddStash"
 import Footer from "../Footer";
 import Stash from "../Stash";
 import Register from "../Register"
-import {
-  SSL_OP_PKCS1_CHECK_1
-} from "constants";
+
 
 class Personal extends Component {
 
@@ -64,7 +60,11 @@ class Personal extends Component {
 
   render() {
 
-    return (<div className="Personal">
+    return (
+      <div className="Personal">
+
+        <button className="home-button"><a className="home-link" href="Home"> Return to Public Stash </a></button>
+
       <AddStash
         userId={this.props.userId}
         handleNewStash={this.handleNewStash}
@@ -79,6 +79,7 @@ class Personal extends Component {
         />
       })
       } </div>
+
     )
   }
 }
