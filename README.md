@@ -12,7 +12,6 @@
 
 ---
 
-
 ## In a Nut-Shell
 !Pocket is a full-stack, CRUD application that allows users to manage articles found on the Internet.
 
@@ -69,7 +68,7 @@ As a member of the online community, I want to share articles that will be of in
 
 # Implementation
 
-## Tech Stack
+### Tech Stack
  - Built with React.js. 
  - CRUD functionality.
  - Posgres and Express API.
@@ -80,10 +79,16 @@ As a member of the online community, I want to share articles that will be of in
     - Open-Graph - when given a URL open-graph provides the open graph meta properties scraped from that URL. 
     - Helmet - sets HTTP headers, preventing unintended elements from being included in our page, e.g. frames, images, tracking scripts, etc.
 
-## Challenges
+### Challenges
 - Scraping cards from URLs.
 - Manipulating the sidebar.
 - Tags.
+
+### Project Workflow
+
+#### Trello Board
+
+![Trello Board](./public/trello-board.jpg)
 
 ---
 
