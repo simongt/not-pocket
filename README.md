@@ -1,93 +1,114 @@
-# notpocket
+# !Pocket (*Not Pocket*)
 
-notpocket is an application that allows users to manage articles found on the Internet.
+!Pocket was first conceived by [Simon Tsegay](https://github.com/simongt), [Yaakov David](https://github.com/YaakovDavid), [Darrell DeCosta](https://github.com/drldcsta) and [Eryl Murphy](https://github.com/ErylMurphy) in the summer of 2018, when they sought a more aesthetically accessible version of Google Bookmarks while being inspired by Pinterest and especially Pocket itself.
 
-The articles are scraped from URLs and formatted as cards. 
-An unregistered user can view cards on the notpocket homepage. To create their own stash of cards, they must register. Once registered/logged in, they are permitted to create cards by submitting a URL into a form. They are then given the option of storing a card privately, or publicly. If they chose public, the card will be displayed both on their personal page and on the notpocket homepage. Cards stored privately are only displayed on the user's personal page. Cards can also be deleted, but only on the personal page. 
+## In a Nut-Shell
+!Pocket is a full-stack, CRUD application that allows users to manage articles found on the Internet.
 
-notpocket was conceived by Yaakov David, Darrell DeCosta, Simon Tsegay, and Eryl Murphy  in the summer of 2018, when they sought a more aesthetically accessible version of google bookmarks. 
+## Features
+A registered user enters a URL for an article, then the article is scraped and formatted to display as a card.
 
-## User stories:
+An unregistered user can view cards on the !Pocket homepage. To create their own stash of cards, they must register. Once registered/logged in, they are permitted to create cards by submitting a URL into a form.
+
+Registered users are then given the option of storing a card privately, or publicly. If they chose public, the card will be displayed both on their personal page and on the !Pocket homepage. Cards stored privately are only displayed on the user's personal page.
+
+Cards can also be deleted, but only on the user's personal page. 
+
+## Screenshots
+
+### Home
+
+![Imgur Image](https://imgur.com/TJQck6r.jpg)
+
+### Add
+
+![Imgur Image](https://imgur.com/BYctOWI.jpg)
+
+## Installation Instructions
+- npm install
+- npm start
+- nodemon server.js
+
+# Design Process
+
+## User Stories
+
 As an avid consumer of web content, I want to easily access and manage articles I have selected to read in my own time. 
 
 As a curious individual, I want to see trending articles.
 
 As a member of the online community, I want to share articles that will be of interest to others.
 
-## Wireframes: 
-Home:
+## Wireframes
 
-![Imgur Image](https://imgur.com/h5ARjh5.jpg)
+### Home
 
-Home with sidebar:
+![Home](https://imgur.com/h5ARjh5.jpg)
 
-![Imgur Image](https://imgur.com/jvvgB9b.jpg)
+### Home with sidebar
 
-Add a card (personal page):
+![Home with sidebar](https://imgur.com/jvvgB9b.jpg)
 
-![Imgur Image](https://imgur.com/qN24iP4.jpg)
+### Add a card (personal page)
 
-Personal page:
+![Add a card](https://imgur.com/qN24iP4.jpg)
 
-![Imgur Image](https://imgur.com/k6yYfKv.jpg)
+### Personal page
 
-## Tech:
+![Personal page](https://imgur.com/k6yYfKv.jpg)
+
+# Implementation
+
+## Tech Stack
  - Built with React.js. 
- - CRD functionality.
- - Posgres and Express API. 
+ - CRUD functionality.
+ - Posgres and Express API.
  - Unit tests written in Jest.
- - NPM packages:
-    - Bcrypt for authorization. 
+ - NPM package breakdown:
+    - Bcrypt for user authorization. 
     - Express-Session.
     - Open-Graph - when given a URL open-graph provides the open graph meta properties scraped from that URL. 
     - Helmet - sets HTTP headers, preventing unintended elements from being included in our page, e.g. frames, images, tracking scripts, etc.
 
-## Challenges: 
+## Challenges
 - Scraping cards from URLs.
 - Manipulating the sidebar.
 - Tags.
 
-## ERDs: 
-The database features the tables users, stash, tags, and stash_tags. "Stash" refers to the individual cards that host a URL. Not all tables were used. Tags were not realized upon project delivery, but the team intends to revisit this. 
+Back-End Design
 
-Example of schema: 
+## ERDs
+The database features the tables `users`, `stash`, `tags`, and `stash_tags`.
+
+***Stash*** refers to the individual cards that host a URL. Not all tables were used. Tags were not realized upon project delivery, but the team intends to revisit this. 
+
+### Sample schema
 
 ![Imgur Image](https://imgur.com/5hghPtE.jpg)
 
-Two models - Users and Stash. 
+### Two models: `Users` + `Stash`. 
 
-Users:
+#### Users
 
 ![Imgur Image](https://imgur.com/P6tcL6h.jpg)
 
-Tags: 
+#### Tags
 
 ![Imgur Image](https://imgur.com/kNlwgsC.jpg)
 
-Tag groups:
+#### Tag groups
 
 ![Imgur Image](https://imgur.com/cvDxXUG.jpg)
 
-Stash: 
+#### Stash
 
 ![Imgur Image](https://imgur.com/7PM8PD0.jpg)
 
-## Future endevors: 
+# Backlog
+
+### Future Endeavors
+
 - Implement tags.
 - Embed videos. 
 - Resolve why certain links cannot be scraped.
-- Implement "friends", so a user can give permission to another user to view their personal page.
-
-## Screenshots:
-Home:  
-
-![Imgur Image](https://imgur.com/TJQck6r.jpg)
-
-Add:
-
-![Imgur Image](https://imgur.com/BYctOWI.jpg)
-
-## Installation instructions: 
-- npm install
-- npm start
-- nodemon server.js
+- Implement a ***friends*** feature, so a user can give permission to another user to view their personal page.
