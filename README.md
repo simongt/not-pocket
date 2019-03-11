@@ -25,9 +25,9 @@ Cards can also be deleted, but only on the user's personal page.
 ![Imgur Image](https://imgur.com/BYctOWI.jpg)
 
 ## Installation Instructions
-- npm install
-- npm start
-- nodemon server.js
+1. Install dependencies: `npm install`.
+2. Launch Node server: `npm start`.
+3. Launch Express server: `nodemon server.js`.
 
 # Design Process
 
