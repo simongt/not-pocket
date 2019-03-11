@@ -2,6 +2,10 @@
 
 !Pocket was first conceived by [Simon Tsegay](https://github.com/simongt), [Yaakov David](https://github.com/YaakovDavid), [Darrell DeCosta](https://github.com/drldcsta) and [Eryl Murphy](https://github.com/ErylMurphy) in the summer of 2018 amidst a week-long code sprint, when they sought a more aesthetically accessible version of [Google Bookmarks](https://www.google.com/bookmarks/), while also being inspired by [Pinterest](https://www.pinterest.com/) and especially [Pocket](https://getpocket.com/) in particular.
 
+<p align="center">
+  <img src="https://simongt.net/img/bits/not-pocket.gif" alt="!Pocket"/>
+</p>
+
 ## Getting Started
 
 ### Installation Instructions
