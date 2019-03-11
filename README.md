@@ -2,6 +2,17 @@
 
 !Pocket was first conceived by [Simon Tsegay](https://github.com/simongt), [Yaakov David](https://github.com/YaakovDavid), [Darrell DeCosta](https://github.com/drldcsta) and [Eryl Murphy](https://github.com/ErylMurphy) in the summer of 2018 amidst a week-long code sprint, when they sought a more aesthetically accessible version of [Google Bookmarks](https://www.google.com/bookmarks/), while also being inspired by [Pinterest](https://www.pinterest.com/) and especially [Pocket](https://getpocket.com/) in particular.
 
+## Getting Started
+
+### Installation Instructions
+
+1. Install dependencies from root directory of project: `npm install`
+2. Launch Node server: `npm start`
+3. Launch Express server: `nodemon server.js`
+
+---
+
+
 ## In a Nut-Shell
 !Pocket is a full-stack, CRUD application that allows users to manage articles found on the Internet.
 
@@ -24,10 +35,7 @@ Cards can also be deleted, but only on the user's personal page.
 
 ![Imgur Image](https://imgur.com/BYctOWI.jpg)
 
-## Installation Instructions
-1. Install dependencies: `npm install`.
-2. Launch Node server: `npm start`.
-3. Launch Express server: `nodemon server.js`.
+---
 
 # Design Process
 
@@ -57,6 +65,8 @@ As a member of the online community, I want to share articles that will be of in
 
 ![Personal page](https://imgur.com/k6yYfKv.jpg)
 
+---
+
 # Implementation
 
 ## Tech Stack
@@ -74,6 +84,8 @@ As a member of the online community, I want to share articles that will be of in
 - Scraping cards from URLs.
 - Manipulating the sidebar.
 - Tags.
+
+---
 
 # Back-End Design
 
@@ -103,6 +115,8 @@ The database features the tables `users`, `stash`, `tags`, and `stash_tags`.
 #### Stash
 
 ![Imgur Image](https://imgur.com/7PM8PD0.jpg)
+
+---
 
 # Backlog
 
