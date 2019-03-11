@@ -75,7 +75,7 @@ As a member of the online community, I want to share articles that will be of in
 - Manipulating the sidebar.
 - Tags.
 
-Back-End Design
+# Back-End Design
 
 ## ERDs
 The database features the tables `users`, `stash`, `tags`, and `stash_tags`.
