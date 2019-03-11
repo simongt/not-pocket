@@ -1,6 +1,6 @@
 # !Pocket (*Not Pocket*)
 
-!Pocket was first conceived by [Simon Tsegay](https://github.com/simongt), [Yaakov David](https://github.com/YaakovDavid), [Darrell DeCosta](https://github.com/drldcsta) and [Eryl Murphy](https://github.com/ErylMurphy) in the summer of 2018, when they sought a more aesthetically accessible version of Google Bookmarks while being inspired by Pinterest and especially Pocket itself.
+!Pocket was first conceived by [Simon Tsegay](https://github.com/simongt), [Yaakov David](https://github.com/YaakovDavid), [Darrell DeCosta](https://github.com/drldcsta) and [Eryl Murphy](https://github.com/ErylMurphy) in the summer of 2018 amidst a week-long code sprint, when they sought a more aesthetically accessible version of [Google Bookmarks](https://www.google.com/bookmarks/), while also being inspired by [Pinterest](https://www.pinterest.com/) and especially [Pocket](https://getpocket.com/) in particular.
 
 ## In a Nut-Shell
 !Pocket is a full-stack, CRUD application that allows users to manage articles found on the Internet.
